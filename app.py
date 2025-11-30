@@ -189,7 +189,6 @@ def combine_data(uploaded_file, zip_uploaded_file):
     return employee_data, bot_ids
 
 
-@st.cache_resource
 def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
     from collections import defaultdict
     import os
