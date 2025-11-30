@@ -5,9 +5,7 @@ A tiny web app that uses [Microsoft Presidio](https://microsoft.github.io/presid
 
 ## Features
 
-- **Privacy-First**: K-anonymity (k=5) applied to all employee fields (Role, Team, Work_Location, Employment_Status, Employment_Type, Tenure_Band)
-  - Strict enforcement for Role and Team: If "Others" < 5, entire column becomes "Others"
-  - Flexible enforcement for other fields: If "Others" < 5, values are still grouped as "Others" but kept
+- **Privacy-First**: K-anonymity (k=5) Strict enforcement for Role and Team.  Flexible enforcement for other fields
 - **No Text Content**: Message text is completely removed
 - **No PII**: Names, emails, and identifiable information excluded
 - **Timestamp Coarsening**: Timestamps rounded to nearest minute to prevent timing attacks
