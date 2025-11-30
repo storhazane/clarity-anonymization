@@ -210,11 +210,6 @@ def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
     from collections import defaultdict
     import os
 
-    # Track processing statistics
-    skipped_files = 0
-    skipped_messages = 0
-    processed_messages = 0
-
     employee_hashes = {}
     for _, row in employee_data.iterrows():
         employee_hashes[row["slack_id"]] = {
@@ -329,10 +324,8 @@ def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
                         
                         try:
                             msgs = safe_json_read(zip_object, file)
-                        except Exception:
-                            # Skip malformed files without exposing paths
-                            skipped_files += 1
-                            continue
+                        except Exception as e:
+                            raise ValueError(f"Unable to read message file. The Slack export may be corrupted. Please download a fresh export and try again.")
                         
                         if not msgs or not isinstance(msgs, list):
                             continue
@@ -431,12 +424,9 @@ def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
                                 anonymized_msg['last_read'] = msg.get('last_read')
 
                             output["messages"][conv_id][date].append(anonymized_msg)
-                            processed_messages += 1
 
                     except Exception as e:
-                        # Count skipped files but don't expose internal details
-                        skipped_files += 1
-                        continue
+                        raise ValueError(f"Error processing message data. The Slack export may be incomplete or corrupted. Please verify your export and try again.")
     
     # Validate that we have some messages
     total_messages = sum(sum(len(msgs) for msgs in dates.values()) for dates in output.get('messages', {}).values())
@@ -445,10 +435,6 @@ def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
                         "  1. Your Slack export contains message files\n"
                         "  2. Users in messages match users in your HRIS CSV\n"
                         "  3. The export includes actual conversation data (not just user/channel lists)")
-    
-    # Warn user about skipped data
-    if skipped_files > 0 or skipped_messages > 0:
-        st.warning(f"Processing completed with some skipped data: {skipped_files} malformed file(s), {skipped_messages} message(s) from unmapped users. Successfully processed {total_messages} messages.")
 
     return output
 
