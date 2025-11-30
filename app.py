@@ -78,7 +78,29 @@ def apply_k_anonymity(df, column, k=5, enforce_strict=True):
 
 def combine_data(uploaded_file, zip_uploaded_file):
     delimiter = detect_delimiter(uploaded_file)
-    df = pd.read_csv(uploaded_file, delimiter=delimiter)
+    
+    # Validate HRIS CSV structure
+    try:
+        df = pd.read_csv(uploaded_file, delimiter=delimiter)
+    except Exception as e:
+        raise ValueError(f"Unable to read HRIS CSV file. Please ensure it's a valid CSV format. Error: {str(e)}")
+    
+    if df.empty:
+        raise ValueError("HRIS CSV file is empty. Please provide a file with employee data.")
+    
+    # Check for email column
+    email_col = next((c for c in ["Email Address", "email", "Email", "work_email"] if c in df.columns), None)
+    if not email_col:
+        raise ValueError("HRIS file must contain an email column. Accepted names: 'Email', 'Email Address', 'email', or 'work_email'. Found columns: " + ", ".join(df.columns.tolist()))
+    
+    # Validate email column has data
+    if df[email_col].isna().all():
+        raise ValueError(f"Email column '{email_col}' contains no data. Please ensure your HRIS file has valid email addresses.")
+    
+    # Check for duplicate emails
+    duplicate_emails = df[df[email_col].duplicated()][email_col].dropna().tolist()
+    if duplicate_emails:
+        raise ValueError(f"Duplicate emails found in HRIS data: {', '.join(duplicate_emails[:5])}. Each employee must have a unique email.")
 
     with ZipFile(zip_uploaded_file, 'r') as zip_object:
         file_list = zip_object.namelist()
@@ -99,11 +121,6 @@ def combine_data(uploaded_file, zip_uploaded_file):
             "timezone": u.get("tz_label"),
             "is_bot": u["profile"].get("bot_id") is not None or u.get("is_bot", False)
         } for u in slack_user_data if isinstance(u, dict) and u.get("id")])
-
-    email_col = next((c for c in ["Email Address", "email", "Email", "work_email", "Email"] if c in df.columns), None)
-    
-    if not email_col:
-        raise ValueError("HRIS file must contain an email column. Accepted names: 'Email', 'Email Address', 'email', or 'work_email'")
 
     merged = slack_user_data.merge(df, how="outer", left_on="email_address", right_on=email_col)
 
@@ -193,6 +210,11 @@ def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
     from collections import defaultdict
     import os
 
+    # Track processing statistics
+    skipped_files = 0
+    skipped_messages = 0
+    processed_messages = 0
+
     employee_hashes = {}
     for _, row in employee_data.iterrows():
         employee_hashes[row["slack_id"]] = {
@@ -273,12 +295,6 @@ def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
         if conv.get("created"):
             conv_data["Created"] = conv.get("created")
         
-        # Add creator (anonymized) if present
-        if conv.get("creator"):
-            creator_clarity = employee_hashes.get(conv.get("creator"), {}).get("Clarity_ID")
-            if creator_clarity:
-                conv_data["Creator"] = creator_clarity
-        
         # Add archive status
         if conv.get("is_archived") is not None:
             conv_data["IsArchived"] = conv.get("is_archived")
@@ -315,6 +331,7 @@ def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
                             msgs = safe_json_read(zip_object, file)
                         except Exception:
                             # Skip malformed files without exposing paths
+                            skipped_files += 1
                             continue
                         
                         if not msgs or not isinstance(msgs, list):
@@ -414,9 +431,11 @@ def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
                                 anonymized_msg['last_read'] = msg.get('last_read')
 
                             output["messages"][conv_id][date].append(anonymized_msg)
+                            processed_messages += 1
 
-                    except Exception:
-                        # Skip problematic files silently - don't expose internal details
+                    except Exception as e:
+                        # Count skipped files but don't expose internal details
+                        skipped_files += 1
                         continue
     
     # Validate that we have some messages
@@ -426,6 +445,10 @@ def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
                         "  1. Your Slack export contains message files\n"
                         "  2. Users in messages match users in your HRIS CSV\n"
                         "  3. The export includes actual conversation data (not just user/channel lists)")
+    
+    # Warn user about skipped data
+    if skipped_files > 0 or skipped_messages > 0:
+        st.warning(f"Processing completed with some skipped data: {skipped_files} malformed file(s), {skipped_messages} message(s) from unmapped users. Successfully processed {total_messages} messages.")
 
     return output
 
@@ -443,6 +466,17 @@ def scrub_secrets(data):
 def main():
     st.set_page_config(page_title="PII Sanitizer for CSV (Microsoft Presidio powered)", layout="wide")
     
+    # Initialize session state for data isolation
+    if 'session_id' not in st.session_state:
+        import uuid
+        st.session_state.session_id = str(uuid.uuid4())
+    
+    # Clear data from previous sessions
+    if 'uploaded_csv_name' not in st.session_state:
+        st.session_state.uploaded_csv_name = None
+    if 'uploaded_zip_name' not in st.session_state:
+        st.session_state.uploaded_zip_name = None
+    
     st.title("PII Sanitizer for CSV (Microsoft Presidio powered)")
     st.markdown("**Privacy-first Slack data anonymization** — No text content, no PII, just metadata")
     
@@ -453,6 +487,15 @@ def main():
     with col1:
         st.subheader("Upload HR CSV")
         uploaded_file = st.file_uploader("Employee data with email, role, team", type=["csv"], key="csv")
+        
+        # Track file changes to clear stale data
+        if uploaded_file:
+            if st.session_state.uploaded_csv_name != uploaded_file.name:
+                st.session_state.uploaded_csv_name = uploaded_file.name
+                # Clear any cached data when new file is uploaded
+                if 'processed_data' in st.session_state:
+                    del st.session_state.processed_data
+        
         if not uploaded_file:
             st.info("Upload a CSV file containing employee information")
             return
@@ -460,6 +503,15 @@ def main():
     with col2:
         st.subheader("Upload Slack Export ZIP")
         zip_uploaded_file = st.file_uploader("Original Slack workspace export", type=["zip"], key="zip")
+        
+        # Track file changes to clear stale data
+        if zip_uploaded_file:
+            if st.session_state.uploaded_zip_name != zip_uploaded_file.name:
+                st.session_state.uploaded_zip_name = zip_uploaded_file.name
+                # Clear any cached data when new file is uploaded
+                if 'processed_data' in st.session_state:
+                    del st.session_state.processed_data
+        
         if not zip_uploaded_file:
             st.info("Upload your Slack export ZIP file")
             return
@@ -470,8 +522,16 @@ def main():
     
     st.divider()
     
+    # Process data only once per session/file combination
     try:
-        df, bot_ids = combine_data(uploaded_file, zip_uploaded_file)
+        # Use session state to store processed data for this session only
+        if 'processed_data' not in st.session_state or st.session_state.get('force_reprocess'):
+            df, bot_ids = combine_data(uploaded_file, zip_uploaded_file)
+            st.session_state.processed_data = {'df': df, 'bot_ids': bot_ids}
+            st.session_state.force_reprocess = False
+        else:
+            df = st.session_state.processed_data['df']
+            bot_ids = st.session_state.processed_data['bot_ids']
         
         # Show data preview
         st.success(f"Data loaded: {len(df)} employees, {len(bot_ids)} bots detected")
