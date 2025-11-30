@@ -69,7 +69,7 @@ This prevents external parties from re-identifying individuals by matching known
 
 **Why Different Rules?**
 - **Role & Team** are critical for analysis precision, so strict k=5 enforcement prevents re-identification
-- **Other fields** provide context; allowing small "Others" groups improves data utility without significant privacy risk
+- **Other fields** provide context; allowing small "Others" groups improves data utility
 
 
 ## Usage
