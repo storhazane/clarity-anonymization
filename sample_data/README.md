@@ -62,7 +62,14 @@ This prevents external parties from re-identifying individuals by matching known
 
 ## Privacy Protection with K-Anonymity
 
-**How It Works:** Groups with <5 members → "Others". If "Others" has <5 members → no filter applied.
+**K-Anonymity (k=5) Applied to All Fields:**
+- **Role, Team, Work_Location, Employment_Status, Employment_Type, Tenure_Band:** Values with <5 occurrences → "Others"
+- **Strict Enforcement (Role & Team only):** If "Others" itself has <5 occurrences → entire column becomes "Others"
+- **Flexible Enforcement (other fields):** If "Others" has <5 occurrences → values remain grouped as "Others" but are kept
+
+**Why Different Rules?**
+- **Role & Team** are critical for analysis precision, so strict k=5 enforcement prevents re-identification
+- **Other fields** provide context; allowing small "Others" groups improves data utility without significant privacy risk
 
 
 ## Usage

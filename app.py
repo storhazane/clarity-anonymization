@@ -51,7 +51,7 @@ def round_timestamp(ts_string, round_to_minutes=1):
         return ts_string
 
 
-def apply_k_anonymity(df, column, k=5):
+def apply_k_anonymity(df, column, k=5, enforce_strict=True):
     if column not in df.columns:
         return df
     
@@ -66,11 +66,12 @@ def apply_k_anonymity(df, column, k=5):
     # Replace values with count < k with "Others"
     df_modified[column] = df_modified[column].apply(lambda x: "Others" if value_counts.get(x, 0) < k else x)
     
-    # Check if "Others" itself has < k occurrences
-    others_count = (df_modified[column] == "Others").sum()
-    if others_count > 0 and others_count < k:
-        # Replace entire column with "Others"
-        df_modified[column] = "Others"
+    # Check if "Others" itself has < k occurrences (only enforce for strict fields)
+    if enforce_strict:
+        others_count = (df_modified[column] == "Others").sum()
+        if others_count > 0 and others_count < k:
+            # Replace entire column with "Others" (only for critical fields like Role/Team)
+            df_modified[column] = "Others"
     
     return df_modified
 
@@ -172,11 +173,18 @@ def combine_data(uploaded_file, zip_uploaded_file):
         
         employee_data["Tenure_Band"] = employee_data["Date_of_Hire"].apply(calculate_tenure_band)
 
-    # Apply k-anonymity ONLY to Role and Team
-    anonymity_fields = ["Role", "Team"]
-    for field in anonymity_fields:
+    # Apply k-anonymity to all fields
+    # Strict enforcement (replace all with "Others" if "Others" < k) only for Role and Team
+    strict_fields = ["Role", "Team"]
+    optional_fields = ["Work_Location", "Employment_Status", "Employment_Type", "Tenure_Band"]
+    
+    for field in strict_fields:
         if field in employee_data.columns:
-            employee_data = apply_k_anonymity(employee_data, field, k=5)
+            employee_data = apply_k_anonymity(employee_data, field, k=5, enforce_strict=True)
+    
+    for field in optional_fields:
+        if field in employee_data.columns:
+            employee_data = apply_k_anonymity(employee_data, field, k=5, enforce_strict=False)
 
     return employee_data, bot_ids
 

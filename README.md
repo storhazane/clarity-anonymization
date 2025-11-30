@@ -5,7 +5,9 @@ A tiny web app that uses [Microsoft Presidio](https://microsoft.github.io/presid
 
 ## Features
 
-- **Privacy-First**: K-anonymity (k=5) applied to Role, Team
+- **Privacy-First**: K-anonymity (k=5) applied to all employee fields (Role, Team, Work_Location, Employment_Status, Employment_Type, Tenure_Band)
+  - Strict enforcement for Role and Team: If "Others" < 5, entire column becomes "Others"
+  - Flexible enforcement for other fields: If "Others" < 5, values are still grouped as "Others" but kept
 - **No Text Content**: Message text is completely removed
 - **No PII**: Names, emails, and identifiable information excluded
 - **Timestamp Coarsening**: Timestamps rounded to nearest minute to prevent timing attacks
@@ -136,7 +138,10 @@ streamlit run app.py --server.port 8504
 ```
 anonymized_slack_export.zip
 ├── users.json                      # Anonymized users with SHA-256 hashed Clarity_IDs
-│                                   # Example: {"Clarity_ID": "E8A3F2D9C1", "Role": "Others", "Team": "Team_Alpha"}
+│                                   # K-anonymity (k=5) applied to all fields: Role, Team, Work_Location,
+│                                   # Employment_Status, Employment_Type, Tenure_Band
+│                                   # Example: {"Clarity_ID": "E8A3F2D9C1", "Role": "Others", "Team": "Team_Alpha",
+│                                   #           "Work_Location": "Amsterdam", "Employment_Status": "Active"}
 ├── conversations.json              # Conversations with SHA-256 hashed IDs
 │                                   # Example: {"ConversationID": "C9A1D5E7B2", "Type": "channel", "Participants": "E8A3F2D9C1,E7B4E8A2F3"}
 └── messages/
