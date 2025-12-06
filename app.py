@@ -63,31 +63,31 @@ def round_timestamp(ts_string, round_to_minutes=1):
         return ts_string
 
 
-def apply_k_anonymity(df, column, k=5, strict=False):
-    if column not in df.columns:
-        return df
-    
-    df_modified = df.copy()
-    
-    # Replace missing/null/empty values with "Others"
-    df_modified[column] = df_modified[column].fillna("Others")
-    df_modified[column] = df_modified[column].apply(lambda x: "Others" if x == "" or pd.isna(x) else x)
-    
-    # Count occurrences of each value
-    value_counts = df_modified[column].value_counts()
-    
-    # Replace values with count < k with "Others"
-    df_modified[column] = df_modified[column].apply(lambda x: "Others" if value_counts.get(x, 0) < k else x)
-    
-    # Check if "Others" itself has < k occurrences
-    others_count = (df_modified[column] == "Others").sum()
-    if others_count > 0 and others_count < k:
-        if strict:
-            # Strict mode: Generalize entire column to "Others"
-            df_modified[column] = "Others"
-        # Flexible mode: Keep "Others" group as-is 
-    
-    return df_modified
+# def apply_k_anonymity(df, column, k=5, strict=False):
+#     if column not in df.columns:
+#         return df
+#     
+#     df_modified = df.copy()
+#     
+#     # Replace missing/null/empty values with "Others"
+#     df_modified[column] = df_modified[column].fillna("Others")
+#     df_modified[column] = df_modified[column].apply(lambda x: "Others" if x == "" or pd.isna(x) else x)
+#     
+#     # Count occurrences of each value
+#     value_counts = df_modified[column].value_counts()
+#     
+#     # Replace values with count < k with "Others"
+#     df_modified[column] = df_modified[column].apply(lambda x: "Others" if value_counts.get(x, 0) < k else x)
+#     
+#     # Check if "Others" itself has < k occurrences
+#     others_count = (df_modified[column] == "Others").sum()
+#     if others_count > 0 and others_count < k:
+#         if strict:
+#             # Strict mode: Generalize entire column to "Others"
+#             df_modified[column] = "Others"
+#         # Flexible mode: Keep "Others" group as-is 
+#     
+#     return df_modified
 
 
 def combine_data(uploaded_file, zip_uploaded_file):
@@ -207,22 +207,22 @@ def combine_data(uploaded_file, zip_uploaded_file):
     return employee_data, bot_ids
 
 
-def apply_privacy_settings(employee_data):
-    k_value = 5
-    
-    # Strict fields: Critical for analysis
-    strict_fields = ["Role", "Team"]
-    for field in strict_fields:
-        if field in employee_data.columns:
-            employee_data = apply_k_anonymity(employee_data, field, k=k_value, strict=True)
-    
-    # Flexible fields: Provide context, improve data utility
-    flexible_fields = ["Work_Location", "Employment_Status", "Employment_Type", "Tenure_Band"]
-    for field in flexible_fields:
-        if field in employee_data.columns:
-            employee_data = apply_k_anonymity(employee_data, field, k=k_value, strict=False)
-    
-    return employee_data
+# def apply_privacy_settings(employee_data):
+#     k_value = 5
+#     
+#     # Strict fields: Critical for analysis
+#     strict_fields = ["Role", "Team"]
+#     for field in strict_fields:
+#         if field in employee_data.columns:
+#             employee_data = apply_k_anonymity(employee_data, field, k=k_value, strict=True)
+#     
+#     # Flexible fields: Provide context, improve data utility
+#     flexible_fields = ["Work_Location", "Employment_Status", "Employment_Type", "Tenure_Band"]
+#     for field in flexible_fields:
+#         if field in employee_data.columns:
+#             employee_data = apply_k_anonymity(employee_data, field, k=k_value, strict=False)
+#     
+#     return employee_data
 
 
 def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids, salt):
