@@ -136,12 +136,13 @@ streamlit run app.py --server.port 8504
 ```
 anonymized_slack_export.zip
 ├── users.json                      # Anonymized users with SHA-256 hashed Clarity_IDs
-│                                   # K-anonymity (k=5) applied to all fields: Role, Team, Work_Location,
-│                                   # Employment_Status, Employment_Type, Tenure_Band
-│                                   # Example: {"Clarity_ID": "E8A3F2D9C1", "Role": "Others", "Team": "Team_Alpha",
-│                                   #           "Work_Location": "Amsterdam", "Employment_Status": "Active"}
+│                                   # All employee metadata fields included
+│                                   # Example: {"Clarity_ID": "E8A3F2D9C1", "Role": "Engineer", "Team": "Team_Alpha",
+│                                   #           "Work_Location": "Amsterdam", "Employment_Status": "Active",
+│                                   #           "Employment_Type": "Full-time", "Tenure_Band": "2-5yr"}
 ├── conversations.json              # Conversations with SHA-256 hashed IDs
-│                                   # Example: {"ConversationID": "C9A1D5E7B2", "Type": "channel", "Participants": "E8A3F2D9C1,E7B4E8A2F3"}
+│                                   # Example: {"ConversationID": "C9A1D5E7B2", "Type": "channel", 
+│                                   #           "Participants": "E8A3F2D9C1,E7B4E8A2F3", "MemberCount": 2}
 └── messages/
     ├── C9A1D5E7B2/                # Hashed conversation ID (channel)
     │   ├── 2025-01-15.json        # Messages organized by date

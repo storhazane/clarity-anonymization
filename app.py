@@ -8,6 +8,17 @@ import re
 import hashlib
 from datetime import datetime
 from zipfile import ZipFile
+import secrets
+
+
+def generate_salt():
+    return secrets.token_hex(32)  # 256-bit salt
+
+
+def salted_hash(value, salt):
+    salted_value = f"{salt}{value}{salt}"
+    hash_object = hashlib.sha256(salted_value.encode())
+    return hash_object.hexdigest()[:10].upper()
 
 
 def safe_json_read(zip_obj, file_path):
@@ -43,20 +54,22 @@ def round_timestamp(ts_string, round_to_minutes=1):
     try:
         ts_float = float(ts_string)
         dt = datetime.fromtimestamp(ts_float)
-        # Round to nearest minute (remove seconds and microseconds)
+        
+        # Round to nearest minute
         rounded_dt = dt.replace(second=0, microsecond=0)
-        # Return as integer timestamp (no milliseconds)
+        
         return str(int(rounded_dt.timestamp()))
     except:
         return ts_string
 
 
-def apply_k_anonymity(df, column, k=5, enforce_strict=True):
+def apply_k_anonymity(df, column, k=5, strict=False):
     if column not in df.columns:
         return df
     
-    # First, replace any missing/null/empty values with "Others"
     df_modified = df.copy()
+    
+    # Replace missing/null/empty values with "Others"
     df_modified[column] = df_modified[column].fillna("Others")
     df_modified[column] = df_modified[column].apply(lambda x: "Others" if x == "" or pd.isna(x) else x)
     
@@ -66,12 +79,13 @@ def apply_k_anonymity(df, column, k=5, enforce_strict=True):
     # Replace values with count < k with "Others"
     df_modified[column] = df_modified[column].apply(lambda x: "Others" if value_counts.get(x, 0) < k else x)
     
-    # Check if "Others" itself has < k occurrences (only enforce for strict fields)
-    if enforce_strict:
-        others_count = (df_modified[column] == "Others").sum()
-        if others_count > 0 and others_count < k:
-            # Replace entire column with "Others" (only for critical fields like Role/Team)
+    # Check if "Others" itself has < k occurrences
+    others_count = (df_modified[column] == "Others").sum()
+    if others_count > 0 and others_count < k:
+        if strict:
+            # Strict mode: Generalize entire column to "Others"
             df_modified[column] = "Others"
+        # Flexible mode: Keep "Others" group as-is 
     
     return df_modified
 
@@ -190,30 +204,38 @@ def combine_data(uploaded_file, zip_uploaded_file):
         
         employee_data["Tenure_Band"] = employee_data["Date_of_Hire"].apply(calculate_tenure_band)
 
-    # Apply k-anonymity to all fields
-    # Strict enforcement (replace all with "Others" if "Others" < k) only for Role and Team
-    strict_fields = ["Role", "Team"]
-    optional_fields = ["Work_Location", "Employment_Status", "Employment_Type", "Tenure_Band"]
-    
-    for field in strict_fields:
-        if field in employee_data.columns:
-            employee_data = apply_k_anonymity(employee_data, field, k=5, enforce_strict=True)
-    
-    for field in optional_fields:
-        if field in employee_data.columns:
-            employee_data = apply_k_anonymity(employee_data, field, k=5, enforce_strict=False)
-
     return employee_data, bot_ids
 
 
-def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
+def apply_privacy_settings(employee_data):
+    k_value = 5
+    
+    # Strict fields: Critical for analysis
+    strict_fields = ["Role", "Team"]
+    for field in strict_fields:
+        if field in employee_data.columns:
+            employee_data = apply_k_anonymity(employee_data, field, k=k_value, strict=True)
+    
+    # Flexible fields: Provide context, improve data utility
+    flexible_fields = ["Work_Location", "Employment_Status", "Employment_Type", "Tenure_Band"]
+    for field in flexible_fields:
+        if field in employee_data.columns:
+            employee_data = apply_k_anonymity(employee_data, field, k=k_value, strict=False)
+    
+    return employee_data
+
+
+def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids, salt):
     from collections import defaultdict
     import os
 
     employee_hashes = {}
     for _, row in employee_data.iterrows():
+        # Use salted hashing for Clarity_IDs
+        salted_clarity_id = "E" + salted_hash(row["slack_id"], salt)
+        
         employee_hashes[row["slack_id"]] = {
-            "Clarity_ID": row["Clarity_ID"],
+            "Clarity_ID": salted_clarity_id,
             "Team": row.get("Team") if "Team" in row else None,
             "Role": row.get("Role") if "Role" in row else None,
             "Timezone": row.get("timezone") if "timezone" in row else None,
@@ -238,25 +260,20 @@ def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
         mpims = safe_json_read(zip_object, next((f for f in files if f.endswith("mpims.json")), None)) if any(f.endswith("mpims.json") for f in files) else []
         users_json = safe_json_read(zip_object, next((f for f in files if f.endswith("users.json")), None))
 
-    # USERS - include all metadata
+    # USERS - include all metadata, exclude bots only
     for u in users_json:
         emp_data = employee_hashes.get(u["id"])
         if emp_data and u["id"] not in list_of_bots_ids:
             output["users"].append(emp_data)
 
     # CONVERSATIONS
-    dm_counter = 1
-    channel_counter = 1
     conv_meta_list = dms + mpims + channels + groups
     conv_id_map = {}  # Map original names to clarity IDs
 
     def generate_conversation_id(conv_original_id, is_dm):
-        """Generate anonymized conversation ID using SHA-256 hashing"""
-        hash_object = hashlib.sha256(conv_original_id.encode())
-        hash_hex = hash_object.hexdigest()
-        # Take first 10 chars and prepend 'D' for DM or 'C' for channel
+        salted_conv_hash = salted_hash(conv_original_id, salt)
         prefix = "D" if is_dm else "C"
-        return prefix + hash_hex[:10].upper()
+        return prefix + salted_conv_hash
 
     for conv in conv_meta_list:
         members = [
@@ -427,20 +444,11 @@ def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids):
 
                     except Exception as e:
                         raise ValueError(f"Error processing message data. The Slack export may be incomplete or corrupted. Please verify your export and try again.")
-    
-    # Validate that we have some messages
-    total_messages = sum(sum(len(msgs) for msgs in dates.values()) for dates in output.get('messages', {}).values())
-    if total_messages == 0:
-        raise ValueError("No messages were found or processed. Please ensure:\n"
-                        "  1. Your Slack export contains message files\n"
-                        "  2. Users in messages match users in your HRIS CSV\n"
-                        "  3. The export includes actual conversation data (not just user/channel lists)")
 
     return output
 
 
 def scrub_secrets(data):
-    """Remove sensitive fields from preview data"""
     if isinstance(data, dict):
         return {k: scrub_secrets(v) for k, v in data.items() if k not in ['token', 'api_key', 'secret', 'password']}
     elif isinstance(data, list):
@@ -504,16 +512,20 @@ def main():
 
     st.divider()
     
-    st.info("K-anonymity (k=5) automatically applied to: Role, Team, Work_Location, Employment_Status, Employment_Type, and Tenure_Band")
-    
-    st.divider()
+    # Generate salt automatically if not present
+    if 'session_salt' not in st.session_state:
+        st.session_state.session_salt = generate_salt()
     
     # Process data only once per session/file combination
     try:
         # Use session state to store processed data for this session only
         if 'processed_data' not in st.session_state or st.session_state.get('force_reprocess'):
             df, bot_ids = combine_data(uploaded_file, zip_uploaded_file)
-            st.session_state.processed_data = {'df': df, 'bot_ids': bot_ids}
+            
+            st.session_state.processed_data = {
+                'df': df, 
+                'bot_ids': bot_ids
+            }
             st.session_state.force_reprocess = False
         else:
             df = st.session_state.processed_data['df']
@@ -522,15 +534,15 @@ def main():
         # Show data preview
         st.success(f"Data loaded: {len(df)} employees, {len(bot_ids)} bots detected")
         
-        with st.expander("Preview Employee Data (k-anonymity applied)"):
+        with st.expander("Preview Employee Data"):
             # Show only available columns
-            available_cols = ['slack_id', 'Clarity_ID']
+            available_cols = ['slack_id']
             for col in ['Role', 'Team', 'Work_Location', 'Employment_Status', 'Employment_Type', 'Tenure_Band']:
                 if col in df.columns:
                     available_cols.append(col)
             preview_df = df[available_cols].head(10)
             st.dataframe(preview_df, use_container_width=True)
-            st.caption(f"Showing first 10 of {len(df)} employees. K-anonymity applied to all filters (values with <5 occurrences → 'Others')")
+            st.caption(f"Showing first 10 of {len(df)} employees.")
         
     except ValueError as e:
         st.error(f"{str(e)}")
@@ -544,7 +556,12 @@ def main():
     if st.button("Anonymize Slack Data", type="primary", use_container_width=True):
         try:
             with st.spinner("Scrubbing your secrets..."):
-                output_data = extract_zip_files(zip_uploaded_file, df, bot_ids)
+                output_data = extract_zip_files(
+                    zip_uploaded_file, 
+                    df, 
+                    bot_ids, 
+                    st.session_state.session_salt
+                )
 
             message_count = sum(
                 sum(len(msgs) for msgs in dates.values())
