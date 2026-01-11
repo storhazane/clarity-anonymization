@@ -1,0 +1,101 @@
+[
+    {
+        "user": "U09FXNQ6T0Q",
+        "type": "message",
+        "ts": "1758724362.418999",
+        "client_msg_id": "6822ee13-610c-43c7-8fd9-4689c272474d",
+        "text": "Great work. Thanks for sharing",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "dff864a413c6",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-09-14\/9512321351317_dff864a413c68fb28e7b_72.jpg",
+            "first_name": "Ennocent",
+            "real_name": "Ennocent Emmanuel Odhiambo",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "emmanuelennocent",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1758611011.502729",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "K1IVb",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Great work. Thanks for sharing"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1758725460.319319",
+        "client_msg_id": "4F33DC8D-E959-4C5F-92BB-E6E9BCDBF351",
+        "text": "Sharing more info on focus time <https:\/\/reclaim.ai\/blog\/what-is-focus-time|https:\/\/reclaim.ai\/blog\/what-is-focus-time>",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "attachments": [
+            {
+                "image_url": "https:\/\/cdn.prod.website-files.com\/67859049c02d67b2cfccef08\/685c2a29c7fb4457bf42fa57_68277ceec77455da2c3ac264_ReclaimAI-Blog-Images-What-Is-Focus-Time.png",
+                "image_width": 1920,
+                "image_height": 1080,
+                "image_bytes": 62775,
+                "from_url": "https:\/\/reclaim.ai\/blog\/what-is-focus-time",
+                "id": 1,
+                "original_url": "https:\/\/reclaim.ai\/blog\/what-is-focus-time",
+                "fallback": "What is Focus Time? 2025 Productivity Guide (w\/ Free Template) | Reclaim",
+                "text": "Focus time is a dedicated block of time you set aside for uninterrupted task work that can improve productivity by 500%. Here’s how to get started:",
+                "title": "What is Focus Time? 2025 Productivity Guide (w\/ Free Template) | Reclaim",
+                "title_link": "https:\/\/reclaim.ai\/blog\/what-is-focus-time",
+                "service_name": "reclaim.ai"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "wKvZI",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Sharing more info on focus time "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/reclaim.ai\/blog\/what-is-focus-time",
+                                "text": "https:\/\/reclaim.ai\/blog\/what-is-focus-time"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

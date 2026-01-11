@@ -1,0 +1,11 @@
+[
+{"user_id":"U09LRNUGZ4K","user_name":"consutherland","date":1761215441,"change_type":"added","app_type":"Google Calendar","app_id":"ADZ494LHY"},
+{"user_id":"U09LRNUGZ4K","user_name":"consutherland","date":1761215439,"change_type":"added","app_type":"Google Calendar","app_id":"ADZ494LHY","scope":"identify,users.profile:write"},
+{"user_id":0,"user_name":"slack","date":1751829265,"change_type":"app_collaborator_added","app_type":"Weekly check in","app_id":"A094CFEG1EX"},
+{"user_id":"U09474U0DQB","user_name":"zanestorha16","date":1751798203,"change_type":"added","app_type":"Thinkladder Insight Finder","app_id":"A03D8L9LD9U"},
+{"user_id":"U09474U0DQB","user_name":"zanestorha16","date":1751649233,"change_type":"added","app_type":"YOICE","app_id":"A07MHAVQ96Z"},
+{"user_id":"U09474U0DQB","user_name":"zanestorha16","date":1751647983,"change_type":"added","app_type":"Geekbot Standup, Poll & Survey","app_id":"A0H67RAG0"},
+{"user_id":"U09474U0DQB","user_name":"zanestorha16","date":1751647982,"change_type":"added","app_type":"Geekbot Standup, Poll & Survey","app_id":"A0H67RAG0","scope":"identify,channels:write"},
+{"user_id":"U09474U0DQB","user_name":"zanestorha16","date":1751647194,"change_type":"added","app_type":"Clarity","app_id":"A094D5G5W69"},
+{"user_id":0,"user_name":"slack","date":1751646779,"change_type":"app_collaborator_added","app_type":"Clarity","app_id":"A094D5G5W69"}
+]

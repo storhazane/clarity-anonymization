@@ -1,0 +1,44 @@
+[
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1759225839.821119",
+        "edited": {
+            "user": "U09474U0DQB",
+            "ts": "1759503195.000000"
+        },
+        "client_msg_id": "14bd09f3-e5a9-488d-9141-f3bf46d6170e",
+        "text": "<https:\/\/diposit.ub.edu\/dspace\/handle\/2445\/214320>",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "qwnbg",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "link",
+                                "url": "https:\/\/diposit.ub.edu\/dspace\/handle\/2445\/214320"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

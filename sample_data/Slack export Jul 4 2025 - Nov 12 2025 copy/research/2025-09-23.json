@@ -1,0 +1,81 @@
+[
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1758611011.502729",
+        "client_msg_id": "f7eb6904-4fdc-42fc-85d5-787038c3cc32",
+        "text": "<https:\/\/journals.plos.org\/plosone\/article?id=10.1371\/journal.pone.0193966>",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1758611011.502729",
+        "reply_count": 1,
+        "reply_users_count": 1,
+        "latest_reply": "1758724362.418999",
+        "reply_users": [
+            "U09FXNQ6T0Q"
+        ],
+        "replies": [
+            {
+                "user": "U09FXNQ6T0Q",
+                "ts": "1758724362.418999"
+            }
+        ],
+        "is_locked": false,
+        "subscribed": true,
+        "last_read": "1758725446.192696",
+        "attachments": [
+            {
+                "from_url": "https:\/\/journals.plos.org\/plosone\/article?id=10.1371\/journal.pone.0193966",
+                "service_icon": "https:\/\/journals.plos.org\/resource\/img\/favicon.ico",
+                "thumb_url": "https:\/\/journals.plos.org\/plosone\/article\/figure\/image?id=10.1371\/journal.pone.0193966.t007&size=inline",
+                "thumb_width": 320,
+                "thumb_height": 88,
+                "id": 1,
+                "original_url": "https:\/\/journals.plos.org\/plosone\/article?id=10.1371\/journal.pone.0193966",
+                "fallback": "E-mail communication patterns and job burnout",
+                "text": "A considerable body of research has documented the negative effects of job burnout on employees and their organizations, emphasizing the importance of the identification of early signs of the phenomenon for the purposes of prevention and intervention. However, such timely identification is difficult due to the time and cost of assessing the burnout levels of all employees in an organization using established scales. In this paper, we propose an innovative way to identify employees at risk of job burnout by analyzing their e-mail communication patterns. Building on the Job Demands–Resources model, we theorize about the relationship between e-mail communication patterns and levels of employee exhaustion and disengagement (two dimensions of burnout). We analyzed 52,190 e-mails exchanged between 57 employees of a medium sized R&amp;D company over a five-month period. We then related these employees’ communication patterns to their levels of burnout, collected using an established scale (the OLBI–Oldenburg Burnout Inventory). Our results provide support for the overall proposition of the paper, that e-mail communications can be used to identify individuals at risk of job burnout. Our models explain up to 34% of the variance of burnout and up to 37% and 19% respectively of the variance of exhaustion and disengagement. They also successfully distinguish between employees with a higher risk of burnout and those with lower levels of risk (F1 score of 84% with recall of 100% and 73% precision). We discuss the implications of our results and present suggestions for future research.",
+                "title": "E-mail communication patterns and job burnout",
+                "title_link": "https:\/\/journals.plos.org\/plosone\/article?id=10.1371\/journal.pone.0193966",
+                "service_name": "journals.plos.org"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "XapQI",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "link",
+                                "url": "https:\/\/journals.plos.org\/plosone\/article?id=10.1371\/journal.pone.0193966"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "heart",
+                "users": [
+                    "U09FXNQ6T0Q"
+                ],
+                "count": 1
+            }
+        ]
+    }
+]

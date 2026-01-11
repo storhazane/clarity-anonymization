@@ -1,480 +1,228 @@
-import io
 import streamlit as st
-import numpy as np
 import pandas as pd
 import json
-import csv
-import re
-import hashlib
-from datetime import datetime
+import gc
 from zipfile import ZipFile
-import secrets
+from io import BytesIO
+
+from utils.hashing import generate_salt, salted_hash
+from utils.file_helpers import detect_delimiter, calculate_tenure_band
+from utils.platform_detection import detect_platform, validate_export_structure
+from parsers.slack_parser import parse_slack_export
+from parsers.teams_parser import parse_teams_export
+from datetime import datetime
 
 
-def generate_salt():
-    return secrets.token_hex(32)  # 256-bit salt
-
-
-def salted_hash(value, salt):
-    salted_value = f"{salt}{value}{salt}"
-    hash_object = hashlib.sha256(salted_value.encode())
-    return hash_object.hexdigest()[:10].upper()
-
-
-def safe_json_read(zip_obj, file_path):
-    content = zip_obj.open(file_path).read()
-    for encoding in ['utf-8', 'latin-1', 'cp1252']:
-        try:
-            if isinstance(content, bytes):
-                decoded = content.decode(encoding)
-            else:
-                decoded = content
-            return json.loads(decoded)
-        except Exception:
-            continue
-
-    # Sanitized error - don't expose file paths
-    raise ValueError("Unable to read JSON file from Slack export. File may be corrupted or in an unexpected format.")
-
-
-def detect_delimiter(file):
-    file.seek(0)
-    sample = file.read(4096)
-    file.seek(0)
-    if isinstance(sample, bytes):
-        sample = sample.decode('utf-8', errors='ignore')
-    try:
-        sniffer = csv.Sniffer()
-        return sniffer.sniff(sample).delimiter
-    except:
-        return ','
-
-
-def round_timestamp(ts_string, round_to_minutes=1):
-    try:
-        ts_float = float(ts_string)
-        dt = datetime.fromtimestamp(ts_float)
+def combine_data(uploaded_file, zip_uploaded_file, platform="slack"):
+    """
+    Combine HRIS data with Slack/Teams export data.
+    
+    Args:
+        uploaded_file: HRIS CSV file
+        zip_uploaded_file: Slack/Teams export ZIP
+        platform: "slack" or "teams"
         
-        # Round to nearest minute
-        rounded_dt = dt.replace(second=0, microsecond=0)
-        
-        return str(int(rounded_dt.timestamp()))
-    except:
-        return ts_string
-
-
-# def apply_k_anonymity(df, column, k=5, strict=False):
-#     if column not in df.columns:
-#         return df
-#     
-#     df_modified = df.copy()
-#     
-#     # Replace missing/null/empty values with "Others"
-#     df_modified[column] = df_modified[column].fillna("Others")
-#     df_modified[column] = df_modified[column].apply(lambda x: "Others" if x == "" or pd.isna(x) else x)
-#     
-#     # Count occurrences of each value
-#     value_counts = df_modified[column].value_counts()
-#     
-#     # Replace values with count < k with "Others"
-#     df_modified[column] = df_modified[column].apply(lambda x: "Others" if value_counts.get(x, 0) < k else x)
-#     
-#     # Check if "Others" itself has < k occurrences
-#     others_count = (df_modified[column] == "Others").sum()
-#     if others_count > 0 and others_count < k:
-#         if strict:
-#             # Strict mode: Generalize entire column to "Others"
-#             df_modified[column] = "Others"
-#         # Flexible mode: Keep "Others" group as-is 
-#     
-#     return df_modified
-
-
-def combine_data(uploaded_file, zip_uploaded_file):
+    Returns:
+        tuple: (DataFrame with combined data, list of bot IDs)
+    """
+    # Read HRIS CSV
     delimiter = detect_delimiter(uploaded_file)
+    uploaded_file.seek(0)
+    hris_df = pd.read_csv(uploaded_file, delimiter=delimiter)
     
-    # Validate HRIS CSV structure
-    try:
-        df = pd.read_csv(uploaded_file, delimiter=delimiter)
-    except Exception as e:
-        raise ValueError(f"Unable to read HRIS CSV file. Please ensure it's a valid CSV format. Error: {str(e)}")
+    # Normalize column names
+    hris_df.columns = hris_df.columns.str.strip()
     
-    if df.empty:
-        raise ValueError("HRIS CSV file is empty. Please provide a file with employee data.")
+    # Detect email column
+    email_col = None
+    for col in hris_df.columns:
+        if 'email' in col.lower() or 'e-mail' in col.lower():
+            email_col = col
+            break
     
-    # Check for email column
-    email_col = next((c for c in ["Email Address", "email", "Email", "work_email"] if c in df.columns), None)
     if not email_col:
-        raise ValueError("HRIS file must contain an email column. Accepted names: 'Email', 'Email Address', 'email', or 'work_email'. Found columns: " + ", ".join(df.columns.tolist()))
+        raise ValueError("Could not find email column in HRIS CSV. Please ensure there's an 'Email' column.")
     
-    # Validate email column has data
-    if df[email_col].isna().all():
-        raise ValueError(f"Email column '{email_col}' contains no data. Please ensure your HRIS file has valid email addresses.")
+    # Normalize emails and remove rows with missing emails
+    hris_df[email_col] = hris_df[email_col].astype(str).str.lower().str.strip()
+    hris_df = hris_df[hris_df[email_col].notna() & (hris_df[email_col] != '') & (hris_df[email_col] != 'nan')]
     
-    # Check for duplicate emails
-    duplicate_emails = df[df[email_col].duplicated()][email_col].dropna().tolist()
-    if duplicate_emails:
-        raise ValueError(f"Duplicate emails found in HRIS data: {', '.join(duplicate_emails[:5])}. Each employee must have a unique email.")
+    # Calculate Tenure_Band from Date_of_Hire
+    hris_df = calculate_tenure_band(hris_df)
+    
+    if platform == "slack":
+        return _combine_slack_data(hris_df, email_col, zip_uploaded_file)
+    else:  # teams
+        return _combine_teams_data(hris_df, email_col, zip_uploaded_file)
 
-    with ZipFile(zip_uploaded_file, 'r') as zip_object:
-        file_list = zip_object.namelist()
 
-        users_json_path = next((f for f in file_list if f.endswith("users.json") and '__MACOSX' not in f), None)
-        if not users_json_path:
-            raise ValueError("Slack export is missing required user data. Please ensure you've exported a complete Slack workspace.")
-
-        slack_user_data = safe_json_read(zip_object, users_json_path)
+def _combine_slack_data(hris_df, email_col, zip_uploaded_file):
+    """Combine HRIS with Slack export."""
+    from utils.file_helpers import safe_json_read
+    from utils.platform_detection import get_file_from_zip
+    
+    with ZipFile(zip_uploaded_file, 'r') as zip_ref:
+        # Read users.json
+        users_file = get_file_from_zip(zip_ref, 'users.json')
+        if not users_file:
+            raise ValueError("Could not find 'users.json' in Slack export. Please ensure you've uploaded a complete export.")
         
-        # Check if this is already anonymized data
-        if slack_user_data and isinstance(slack_user_data, list) and slack_user_data[0].get('Clarity_ID'):
-            raise ValueError("This appears to be an already anonymized Slack export. Please upload the original Slack export ZIP file.")
-
-        slack_user_data = pd.DataFrame([{
-            "slack_id": u["id"],
-            "email_address": u["profile"].get("email"),
-            "timezone": u.get("tz_label"),
-            "is_bot": u["profile"].get("bot_id") is not None or u.get("is_bot", False)
-        } for u in slack_user_data if isinstance(u, dict) and u.get("id")])
-
-    merged = slack_user_data.merge(df, how="outer", left_on="email_address", right_on=email_col)
-
-    # Separate bots and real users
-    employee_data = merged[merged.is_bot == False].copy()
-    bot_ids = merged[merged.is_bot == True].slack_id.tolist()
+        users_data = safe_json_read(zip_ref, users_file)
     
-    # Find users in Slack but not in HRIS (excluding bots)
+    # Identify bots
+    bot_ids = [u['id'] for u in users_data if u.get('is_bot') or u.get('name') == 'slackbot']
+    
+    # Create Slack user lookup
+    slack_users = []
+    for user in users_data:
+        if user.get('is_bot') or user.get('name') == 'slackbot':
+            continue
+        
+        email = user.get('profile', {}).get('email', '').lower().strip()
+        if email:
+            slack_users.append({
+                'email_address': email,
+                'slack_id': user['id'],
+                'timezone': user.get('tz')
+            })
+    
+    slack_df = pd.DataFrame(slack_users)
+    
+    # Merge with HRIS
+    employee_data = hris_df.merge(
+        slack_df,
+        left_on=email_col,
+        right_on='email_address',
+        how='outer',
+        indicator=True
+    )
+    
+    # Handle unmapped users
     slack_only_users = employee_data[employee_data[email_col].isna()].copy()
     if len(slack_only_users) > 0:
         unmapped_emails = slack_only_users['email_address'].dropna().tolist()
-        unmapped_count = len(unmapped_emails)
-        sample_emails = unmapped_emails[:5]
-        
-        error_msg = f"Found {unmapped_count} Slack user(s) that cannot be mapped to HRIS data.\n\n"
-        error_msg += "Sample unmapped emails:\n"
-        for email in sample_emails:
-            error_msg += f"  • {email}\n"
-        if unmapped_count > 5:
-            error_msg += f"  ... and {unmapped_count - 5} more\n"
-        error_msg += "\nPlease ensure all Slack users (except bots) exist in your HRIS CSV file."
-        raise ValueError(error_msg)
+        st.warning(f"Found {len(unmapped_emails)} Slack user(s) not in HRIS: {', '.join(unmapped_emails[:3])}...")
     
-    # Find users in HRIS but not in Slack (warning, not error)
     hris_only_users = employee_data[employee_data['slack_id'].isna()].copy()
     if len(hris_only_users) > 0:
-        st.warning(f" {len(hris_only_users)} employee(s) in HRIS were not found in Slack export. They will be excluded from the anonymized data.")
-
-    # Keep only successfully mapped users
-    employee_data = employee_data[employee_data['slack_id'].notna() & employee_data[email_col].notna()].copy()
+        st.warning(f"{len(hris_only_users)} HRIS employee(s) not found in Slack export.")
+    
+    # Keep only matched users
+    employee_data = employee_data[
+        employee_data['slack_id'].notna() & employee_data[email_col].notna()
+    ].copy()
     
     if len(employee_data) == 0:
-        raise ValueError("No users could be matched between Slack export and HRIS data. Please check that emails match in both files.")
-
-    # Use one-way hashing (SHA-256) to generate Clarity_IDs - no reverse lookup possible
-    def generate_clarity_id(slack_id):
-        hash_object = hashlib.sha256(slack_id.encode())
-        hash_hex = hash_object.hexdigest()
-        # Take first 10 chars and prepend 'E' for employee
-        return "E" + hash_hex[:10].upper()
+        raise ValueError("No users could be matched between Slack export and HRIS data.")
     
-    employee_data["Clarity_ID"] = employee_data["slack_id"].apply(generate_clarity_id)
-
-    # Calculate Tenure_Band from Date_of_Hire if available
-    if "Date_of_Hire" in employee_data.columns:
-        def calculate_tenure_band(hire_date):
-            if pd.isna(hire_date):
-                return "Unknown"
-            try:
-                hire_dt = pd.to_datetime(hire_date)
-                tenure_days = (datetime.now() - hire_dt).days
-                
-                if tenure_days < 90:
-                    return "0-3mo"
-                elif tenure_days < 180:
-                    return "3-6mo"
-                elif tenure_days < 365:
-                    return "6-12mo"
-                elif tenure_days < 730:
-                    return "1-2yr"
-                elif tenure_days < 1825:
-                    return "2-5yr"
-                else:
-                    return "5+yr"
-            except:
-                return "Unknown"
-        
-        employee_data["Tenure_Band"] = employee_data["Date_of_Hire"].apply(calculate_tenure_band)
-
     return employee_data, bot_ids
 
 
-# def apply_privacy_settings(employee_data):
-#     k_value = 5
-#     
-#     # Strict fields: Critical for analysis
-#     strict_fields = ["Role", "Team"]
-#     for field in strict_fields:
-#         if field in employee_data.columns:
-#             employee_data = apply_k_anonymity(employee_data, field, k=k_value, strict=True)
-#     
-#     # Flexible fields: Provide context, improve data utility
-#     flexible_fields = ["Work_Location", "Employment_Status", "Employment_Type", "Tenure_Band"]
-#     for field in flexible_fields:
-#         if field in employee_data.columns:
-#             employee_data = apply_k_anonymity(employee_data, field, k=k_value, strict=False)
-#     
-#     return employee_data
-
-
-def extract_zip_files(zip_uploaded_file, employee_data, list_of_bots_ids, salt):
-    from collections import defaultdict
-    import os
-
-    employee_hashes = {}
-    for _, row in employee_data.iterrows():
-        # Use salted hashing for Clarity_IDs
-        salted_clarity_id = "E" + salted_hash(row["slack_id"], salt)
+def _combine_teams_data(hris_df, email_col, zip_uploaded_file):
+    """Combine HRIS with Teams export."""
+    import csv
+    from io import StringIO
+    
+    with ZipFile(zip_uploaded_file, 'r') as zip_ref:
+        file_list = zip_ref.namelist()
         
-        employee_hashes[row["slack_id"]] = {
-            "Clarity_ID": salted_clarity_id,
-            "Team": row.get("Team") if "Team" in row else None,
-            "Role": row.get("Role") if "Role" in row else None,
-            "Timezone": row.get("timezone") if "timezone" in row else None,
-            "Work_Location": row.get("Work_Location") if "Work_Location" in row else None,
-            "Employment_Status": row.get("Employment_Status") if "Employment_Status" in row else None,
-            "Employment_Type": row.get("Employment_Type") if "Employment_Type" in row else None,
-            "Tenure_Band": row.get("Tenure_Band") if "Tenure_Band" in row else None,
-        }
-
-    output = {
-        "users": [],
-        "conversations": [],
-        "messages": defaultdict(lambda: defaultdict(list))  # {conv_id: {date: [messages]}}
-    }
-
-    with ZipFile(zip_uploaded_file, 'r') as zip_object:
-        files = [f for f in zip_object.namelist() if '__MACOSX' not in f]
-
-        channels = safe_json_read(zip_object, next((f for f in files if f.endswith("channels.json")), None))
-        groups = safe_json_read(zip_object, next((f for f in files if f.endswith("groups.json")), None)) if any(f.endswith("groups.json") for f in files) else []
-        dms = safe_json_read(zip_object, next((f for f in files if f.endswith("dms.json")), None)) if any(f.endswith("dms.json") for f in files) else []
-        mpims = safe_json_read(zip_object, next((f for f in files if f.endswith("mpims.json")), None)) if any(f.endswith("mpims.json") for f in files) else []
-        users_json = safe_json_read(zip_object, next((f for f in files if f.endswith("users.json")), None))
-
-    # USERS - include all metadata, exclude bots only
-    for u in users_json:
-        emp_data = employee_hashes.get(u["id"])
-        if emp_data and u["id"] not in list_of_bots_ids:
-            output["users"].append(emp_data)
-
-    # CONVERSATIONS
-    conv_meta_list = dms + mpims + channels + groups
-    conv_id_map = {}  # Map original names to clarity IDs
-
-    def generate_conversation_id(conv_original_id, is_dm):
-        salted_conv_hash = salted_hash(conv_original_id, salt)
-        prefix = "D" if is_dm else "C"
-        return prefix + salted_conv_hash
-
-    for conv in conv_meta_list:
-        members = [
-            employee_hashes.get(m, {}).get("Clarity_ID")
-            for m in conv.get("members", [])
-            if employee_hashes.get(m) and m not in list_of_bots_ids
-        ]
-
-        if not members:
-            continue
-
-        is_dm = len(members) <= 3 or conv.get("is_im") or conv.get("is_mpim")
+        # Find Users.csv
+        users_csv = next((f for f in file_list if f.endswith('Users.csv')), None)
+        if not users_csv:
+            raise ValueError("Could not find Users.csv in Teams export")
         
-        # Use original conversation ID or name for hashing
-        original_conv_id = conv.get("id", conv.get("name", ""))
-        conv_id = generate_conversation_id(original_conv_id, is_dm)
-        conv_type = "dm" if is_dm else "channel"
-
-        conv_name = conv.get("name", conv.get("id", ""))
-        conv_id_map[conv_name] = conv_id
-
-        # Build conversation metadata
-        conv_data = {
-            "ConversationID": conv_id,
-            "Type": conv_type,
-            "Participants": ",".join(members),
-            "MemberCount": len(members),
-        }
+        users_content = zip_ref.read(users_csv).decode('utf-8')
+        users_reader = csv.DictReader(StringIO(users_content))
         
-        # Add created timestamp if present
-        if conv.get("created"):
-            conv_data["Created"] = conv.get("created")
-        
-        # Add archive status
-        if conv.get("is_archived") is not None:
-            conv_data["IsArchived"] = conv.get("is_archived")
-        
-        
-        output["conversations"].append(conv_data)
-
-    # MESSAGES - organized by conversation and date
-    with ZipFile(zip_uploaded_file, 'r') as zip_object:
-        folders = [f for f in zip_object.namelist() if f.endswith("/") and '__MACOSX' not in f]
-        
-        # Find all message files
-        message_files = [f for f in zip_object.namelist() if f.endswith(".json") and '__MACOSX' not in f 
-                        and not f.endswith("users.json") and not f.endswith("channels.json") 
-                        and not f.endswith("groups.json") and not f.endswith("dms.json") and not f.endswith("mpims.json")]
-        
-        if not message_files:
-            raise ValueError("No message files found in Slack export. Please ensure your export includes message history data.")
-
-        for folder in folders:
-            folder_name = folder.strip("/").split("/")[-1]
-            conv_id = conv_id_map.get(folder_name)
-
-            if not conv_id:
-                continue
-
-            for file in zip_object.namelist():
-                if file.startswith(folder) and file.endswith(".json") and '__MACOSX' not in file:
-                    try:
-                        # Extract date from filename
-                        date = os.path.basename(file).replace('.json', '')
-                        
-                        try:
-                            msgs = safe_json_read(zip_object, file)
-                        except Exception as e:
-                            raise ValueError(f"Unable to read message file. The Slack export may be corrupted. Please download a fresh export and try again.")
-                        
-                        if not msgs or not isinstance(msgs, list):
-                            continue
-                            
-                        for msg in msgs:
-                            if not isinstance(msg, dict):
-                                continue
-
-                            user_id = msg.get("user")
-                            if not user_id or user_id in list_of_bots_ids + ['USLACKBOT']:
-                                continue
-
-                            clarity = employee_hashes.get(user_id, {}).get("Clarity_ID")
-                            if not clarity:
-                                continue
-
-                            # Create anonymized message in Slack format with rounded timestamps
-                            anonymized_msg = {
-                                'user': clarity,
-                                'ts': round_timestamp(msg.get('ts', '0'))
-                            }
-                            
-                            # Add edited metadata if present
-                            if msg.get('edited'):
-                                edited_info = {}
-                                if msg['edited'].get('ts'):
-                                    edited_info['ts'] = round_timestamp(msg['edited'].get('ts'))
-                                if msg['edited'].get('user'):
-                                    editor_clarity = employee_hashes.get(msg['edited'].get('user'), {}).get('Clarity_ID')
-                                    if editor_clarity:
-                                        edited_info['user'] = editor_clarity
-                                if edited_info:
-                                    anonymized_msg['edited'] = edited_info
-
-                            # Add thread_ts if present (rounded)
-                            if msg.get('thread_ts'):
-                                anonymized_msg['thread_ts'] = round_timestamp(msg.get('thread_ts'))
-                            
-                            # Add latest_reply if present (rounded)
-                            if msg.get('latest_reply'):
-                                anonymized_msg['latest_reply'] = round_timestamp(msg.get('latest_reply'))
-                            
-                            # Add reply_count if present
-                            if msg.get('reply_count'):
-                                anonymized_msg['reply_count'] = msg.get('reply_count')
-                            
-                            # Add reply_users_count if present
-                            if msg.get('reply_users_count'):
-                                anonymized_msg['reply_users_count'] = msg.get('reply_users_count')
-                            
-                            # Add reply_users if present (anonymize user IDs)
-                            if msg.get('reply_users'):
-                                anonymized_reply_users = []
-                                for reply_user_id in msg.get('reply_users', []):
-                                    if reply_user_id not in list_of_bots_ids:
-                                        clarity_user = employee_hashes.get(reply_user_id, {}).get('Clarity_ID')
-                                        if clarity_user:
-                                            anonymized_reply_users.append(clarity_user)
-                                if anonymized_reply_users:
-                                    anonymized_msg['reply_users'] = anonymized_reply_users
-                            
-                            # Add replies metadata if present (anonymize user IDs)
-                            if msg.get('replies'):
-                                anonymized_replies = []
-                                for reply in msg.get('replies', []):
-                                    reply_user = reply.get('user')
-                                    if reply_user and reply_user not in list_of_bots_ids:
-                                        clarity_user = employee_hashes.get(reply_user, {}).get('Clarity_ID')
-                                        if clarity_user:
-                                            anonymized_replies.append({
-                                                'user': clarity_user,
-                                                'ts': round_timestamp(reply.get('ts', '0'))
-                                            })
-                                if anonymized_replies:
-                                    anonymized_msg['replies'] = anonymized_replies
-
-                            # Add reactions if present (with anonymized users, no reaction types)
-                            if msg.get('reactions'):
-                                anonymized_reactions = []
-                                for reaction in msg.get('reactions', []):
-                                    anonymized_users = [
-                                        employee_hashes.get(u, {}).get('Clarity_ID')
-                                        for u in reaction.get('users', [])
-                                        if u not in list_of_bots_ids and employee_hashes.get(u)
-                                    ]
-                                    if anonymized_users:
-                                        anonymized_reactions.append({
-                                            'count': len(anonymized_users),
-                                            'users': anonymized_users
-                                        })
-                                if anonymized_reactions:
-                                    anonymized_msg['reactions'] = anonymized_reactions
-                            
-                            # Add last_read if present
-                            if msg.get('last_read'):
-                                anonymized_msg['last_read'] = msg.get('last_read')
-
-                            output["messages"][conv_id][date].append(anonymized_msg)
-
-                    except Exception as e:
-                        raise ValueError(f"Error processing message data. The Slack export may be incomplete or corrupted. Please verify your export and try again.")
-
-    return output
+        teams_users = []
+        for user in users_reader:
+            email = user.get('Email', '').lower().strip()
+            if email:
+                teams_users.append({
+                    'email_address': email,
+                    'teams_id': user.get('UserId', ''),
+                    'display_name': user.get('DisplayName', '')
+                })
+    
+    teams_df = pd.DataFrame(teams_users)
+    
+    # Merge with HRIS
+    employee_data = hris_df.merge(
+        teams_df,
+        left_on=email_col,
+        right_on='email_address',
+        how='outer',
+        indicator=True
+    )
+    
+    # Handle unmapped users
+    teams_only_users = employee_data[employee_data[email_col].isna()].copy()
+    if len(teams_only_users) > 0:
+        unmapped_emails = teams_only_users['email_address'].dropna().tolist()
+        st.warning(f"Found {len(unmapped_emails)} Teams user(s) not in HRIS: {', '.join(unmapped_emails[:3])}...")
+    
+    hris_only_users = employee_data[employee_data['teams_id'].isna()].copy()
+    if len(hris_only_users) > 0:
+        st.warning(f"{len(hris_only_users)} HRIS employee(s) not found in Teams export.")
+    
+    # Keep only matched users
+    employee_data = employee_data[
+        employee_data['teams_id'].notna() & employee_data[email_col].notna()
+    ].copy()
+    
+    if len(employee_data) == 0:
+        raise ValueError("No users could be matched between Teams export and HRIS data.")
+    
+    # Bot detection (service accounts, etc.) - can be enhanced
+    bot_ids = []
+    
+    return employee_data, bot_ids
 
 
 def scrub_secrets(data):
+    """Remove any remaining sensitive data from preview."""
     if isinstance(data, dict):
-        return {k: scrub_secrets(v) for k, v in data.items() if k not in ['token', 'api_key', 'secret', 'password']}
+        return {k: scrub_secrets(v) for k, v in data.items()}
     elif isinstance(data, list):
         return [scrub_secrets(item) for item in data]
-    else:
-        return data
+    elif isinstance(data, str) and '@' in data:
+        return "<EMAIL_REDACTED>"
+    return data
 
 
 def main():
-    st.set_page_config(page_title="PII Sanitizer for CSV (Microsoft Presidio powered)", layout="wide")
+    st.set_page_config(page_title="Clarity - Communication Data Anonymizer", layout="wide")
     
-    # Initialize session state for data isolation
+    # Initialize session state
     if 'session_id' not in st.session_state:
         import uuid
         st.session_state.session_id = str(uuid.uuid4())
     
-    # Clear data from previous sessions
     if 'uploaded_csv_name' not in st.session_state:
         st.session_state.uploaded_csv_name = None
     if 'uploaded_zip_name' not in st.session_state:
         st.session_state.uploaded_zip_name = None
+    if 'platform' not in st.session_state:
+        st.session_state.platform = 'Slack'
     
-    st.title("PII Sanitizer for CSV (Microsoft Presidio powered)")
-    st.markdown("**Privacy-first Slack data anonymization** — No text content, no PII, just metadata")
+    st.title("Clarity")
+    st.markdown("**Privacy-first communication data anonymization** — No text content, no PII, just metadata")
     
     st.divider()
+    
+    # Platform selection
+    platform = st.radio(
+        "Select Platform",
+        ["Slack", "Microsoft Teams"],
+        horizontal=True,
+        help="Choose the platform your export is from"
+    )
+    
+    # Reset data if platform changes
+    if st.session_state.platform != platform:
+        st.session_state.platform = platform
+        if 'processed_data' in st.session_state:
+            del st.session_state.processed_data
     
     col1, col2 = st.columns(2)
     
@@ -482,11 +230,9 @@ def main():
         st.subheader("Upload HR CSV")
         uploaded_file = st.file_uploader("Employee data with email, role, team", type=["csv"], key="csv")
         
-        # Track file changes to clear stale data
         if uploaded_file:
             if st.session_state.uploaded_csv_name != uploaded_file.name:
                 st.session_state.uploaded_csv_name = uploaded_file.name
-                # Clear any cached data when new file is uploaded
                 if 'processed_data' in st.session_state:
                     del st.session_state.processed_data
         
@@ -495,48 +241,85 @@ def main():
             return
     
     with col2:
-        st.subheader("Upload Slack Export ZIP")
-        zip_uploaded_file = st.file_uploader("Original Slack workspace export", type=["zip"], key="zip")
+        platform_name = "Slack" if platform == "Slack" else "Microsoft Teams"
+        st.subheader(f"Upload {platform_name} Export ZIP")
         
-        # Track file changes to clear stale data
+        help_text = {
+            "Slack": "Upload your Slack workspace export ZIP file",
+            "Microsoft Teams": "Upload your Teams export ZIP file (from Teams Admin Center or eDiscovery)"
+        }
+        
+        zip_uploaded_file = st.file_uploader(
+            f"Original {platform_name} export",
+            type=["zip"],
+            key="zip",
+            help=help_text[platform]
+        )
+        
         if zip_uploaded_file:
             if st.session_state.uploaded_zip_name != zip_uploaded_file.name:
                 st.session_state.uploaded_zip_name = zip_uploaded_file.name
-                # Clear any cached data when new file is uploaded
                 if 'processed_data' in st.session_state:
                     del st.session_state.processed_data
         
         if not zip_uploaded_file:
-            st.info("Upload your Slack export ZIP file")
+            st.info(f"Upload your {platform_name} export ZIP file")
             return
 
     st.divider()
     
-    # Generate salt automatically if not present
+    # Auto-detect and validate platform
+    detected_platform = None
+    try:
+        detected_platform = detect_platform(zip_uploaded_file)
+        validation = validate_export_structure(zip_uploaded_file, detected_platform)
+        
+        if validation['warnings']:
+            for warning in validation['warnings']:
+                st.warning(warning)
+        
+        # Check if detected platform matches selection
+        if detected_platform != platform.lower().replace("microsoft ", ""):
+            st.warning(
+                f"Detected {detected_platform.upper()} export, but you selected {platform}. "
+                f"Using detected platform: {detected_platform.upper()}"
+            )
+            platform = "Slack" if detected_platform == "slack" else "Microsoft Teams"
+        else:
+            st.success(f"✓ Detected {detected_platform.upper()} export ({validation['file_count']} files)")
+    
+    except ValueError as e:
+        st.error(f"Export validation failed: {str(e)}")
+        return
+    except Exception as e:
+        st.warning(f"Could not auto-detect platform: {str(e)}. Using selected platform: {platform}")
+        detected_platform = platform.lower().replace("microsoft ", "")
+    
+    # Generate salt
     if 'session_salt' not in st.session_state:
         st.session_state.session_salt = generate_salt()
     
-    # Process data only once per session/file combination
+    # Process data
     try:
-        # Use session state to store processed data for this session only
         if 'processed_data' not in st.session_state or st.session_state.get('force_reprocess'):
-            df, bot_ids = combine_data(uploaded_file, zip_uploaded_file)
+            df, bot_ids = combine_data(uploaded_file, zip_uploaded_file, detected_platform)
             
             st.session_state.processed_data = {
                 'df': df, 
-                'bot_ids': bot_ids
+                'bot_ids': bot_ids,
+                'platform': detected_platform
             }
             st.session_state.force_reprocess = False
         else:
             df = st.session_state.processed_data['df']
             bot_ids = st.session_state.processed_data['bot_ids']
+            detected_platform = st.session_state.processed_data.get('platform', detected_platform)
         
-        # Show data preview
         st.success(f"Data loaded: {len(df)} employees, {len(bot_ids)} bots detected")
         
         with st.expander("Preview Employee Data"):
-            # Show only available columns
-            available_cols = ['slack_id']
+            id_col = 'slack_id' if detected_platform == "slack" else 'teams_id'
+            available_cols = [id_col]
             for col in ['Role', 'Team', 'Work_Location', 'Employment_Status', 'Employment_Type', 'Tenure_Band']:
                 if col in df.columns:
                     available_cols.append(col)
@@ -548,20 +331,29 @@ def main():
         st.error(f"{str(e)}")
         return
     except Exception as e:
-        st.error("An error occurred while processing your files. Please verify both files are valid and try again.")
+        st.error(f"An error occurred while processing your files: {str(e)}")
         return
 
     st.divider()
     
-    if st.button("Anonymize Slack Data", type="primary", use_container_width=True):
+    button_label = f"Anonymize {platform} Data"
+    if st.button(button_label, type="primary", use_container_width=True):
         try:
-            with st.spinner("Scrubbing your secrets..."):
-                output_data = extract_zip_files(
-                    zip_uploaded_file, 
-                    df, 
-                    bot_ids, 
-                    st.session_state.session_salt
-                )
+            with st.spinner("Anonymizing data..."):
+                if detected_platform == "slack":
+                    output_data = parse_slack_export(
+                        zip_uploaded_file, 
+                        df, 
+                        bot_ids, 
+                        st.session_state.session_salt
+                    )
+                else:  # Microsoft Teams
+                    output_data = parse_teams_export(
+                        zip_uploaded_file, 
+                        df, 
+                        bot_ids, 
+                        st.session_state.session_salt
+                    )
 
             message_count = sum(
                 sum(len(msgs) for msgs in dates.values())
@@ -570,18 +362,19 @@ def main():
         except ValueError as e:
             st.error(f"{str(e)}")
             return
-        except Exception:
-            st.error("An error occurred during anonymization. Please ensure your Slack export is complete and valid.")
+        except Exception as e:
+            st.error(f"An error occurred during anonymization: {str(e)}")
+            import traceback
+            st.code(traceback.format_exc())
             return
         
-        # Display summary
         st.success("Anonymization complete!")
         
         col1, col2, col3 = st.columns(3)
         with col1:
-            st.metric("Users", len(output_data["users"]))
+            st.metric("Users", len(output_data.get("users", [])))
         with col2:
-            st.metric("Conversations", len(output_data["conversations"]))
+            st.metric("Conversations", len(output_data.get("conversations", [])))
         with col3:
             st.metric("Messages", message_count)
         
@@ -597,7 +390,6 @@ def main():
             st.caption(f"Showing 3 of {len(output_data['conversations'])} conversations")
         
         with tab3:
-            # Get first conversation with messages
             sample_messages = []
             for conv_id, dates in output_data.get('messages', {}).items():
                 for date, messages in dates.items():
@@ -616,15 +408,14 @@ def main():
         
         st.divider()
 
-        # Build ZIP with organized structure
+        # Build download package
         try:
-            from io import BytesIO
             zip_buffer = BytesIO()
             with ZipFile(zip_buffer, "w") as zipf:
                 zipf.writestr("users.json", json.dumps(output_data["users"], indent=2))
                 zipf.writestr("conversations.json", json.dumps(output_data["conversations"], indent=2))
                 
-                # Write messages organized by conversation and date
+                # Export messages in Slack folder structure: messages/conv_id/date.json
                 for conv_id, dates in output_data.get('messages', {}).items():
                     for date, messages in dates.items():
                         if messages:
@@ -632,17 +423,61 @@ def main():
                             zipf.writestr(file_path, json.dumps(messages, indent=2))
 
             zip_buffer.seek(0)
+            
+            # Prepare filter mappings
+            mappings_json = json.dumps(output_data.get("filter_mappings", {}), indent=2)
+            mappings_bytes = mappings_json.encode('utf-8')
+            
+            # Create combined ZIP
+            combined_zip_buffer = BytesIO()
+            with ZipFile(combined_zip_buffer, "w") as combined_zipf:
+                platform_prefix = detected_platform
+                combined_zipf.writestr(f"anonymized_{platform_prefix}_export.zip", zip_buffer.getvalue())
+                combined_zipf.writestr("filter_mappings.json", mappings_bytes)
+            
+            combined_zip_buffer.seek(0)
+            
             st.download_button(
-                "Download Anonymized Slack Export",
-                zip_buffer.getvalue(),
-                "anonymized_slack_export.zip",
+                "Download Anonymized Data & Filter Mappings",
+                combined_zip_buffer.getvalue(),
+                "clarity_export.zip",
                 "application/zip",
                 type="primary",
-                use_container_width=True
+                use_container_width=True,
+                on_click=lambda: cleanup_session()
             )
-        except Exception:
-            st.error("Unable to create download file. Please try again.")
+                                                 
+        except Exception as e:
+            st.error(f"Unable to create download file: {str(e)}")
             return
+
+
+def cleanup_session():
+    """Clear all sensitive session data from memory and destroy salt."""
+    keys_to_clear = [
+        'session_salt',
+        'processed_data',
+        'uploaded_csv_name',
+        'uploaded_zip_name',
+        'force_reprocess'
+    ]
+    
+    # Explicitly delete data from session state
+    for key in keys_to_clear:
+        if key in st.session_state:
+            # Overwrite salt with zeros before deletion
+            if key == 'session_salt' and st.session_state[key]:
+                st.session_state[key] = None
+            # Clear dataframe from memory
+            elif key == 'processed_data' and isinstance(st.session_state.get(key), dict):
+                if 'df' in st.session_state[key]:
+                    st.session_state[key]['df'] = None
+                st.session_state[key] = None
+            
+            del st.session_state[key]
+    
+    # Force garbage collection to clear memory
+    gc.collect()
 
 
 if __name__ == "__main__":

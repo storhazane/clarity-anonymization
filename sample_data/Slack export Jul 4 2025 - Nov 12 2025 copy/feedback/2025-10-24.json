@@ -1,0 +1,1858 @@
+[
+    {
+        "user": "U09BQ3R3SG2",
+        "type": "message",
+        "ts": "1761298131.790819",
+        "client_msg_id": "6B9B2737-3CC3-49B4-B70B-F8532CE85A64",
+        "text": "Hi <@U09474U0DQB>, just thinking that if you’re looking at mid-size players, might be worth having a feature \/ time indicator of key communication events. Like - annual compensation review; annual performance review; annual share payout; big survey dates; annual employee party - just so that we would have a chance to see if around those there are specific peaks \/ recognize any spikes in engagement or disengagement and focus ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "g4499e988e99",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/4499e988e9954d96d85b3705196f5bcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+            "first_name": "Alise",
+            "real_name": "Alise Rupeka_personal",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "alise.rupeka",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "PafMl",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "H"
+                            },
+                            {
+                                "type": "text",
+                                "text": "i "
+                            },
+                            {
+                                "type": "user",
+                                "user_id": "U09474U0DQB"
+                            },
+                            {
+                                "type": "text",
+                                "text": ", just thinking that if "
+                            },
+                            {
+                                "type": "text",
+                                "text": "you’re"
+                            },
+                            {
+                                "type": "text",
+                                "text": " looking at mid-size players, might be worth having a feature \/ time indicator of key communication events. Like - annual compensation review; annual performance review; annual share payout; big survey dates; annual employee party - just so that we would have a chance to see if around those there are specific peaks \/ recognize any spikes in engagement or disengagement and focus "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761298392.503639",
+        "edited": {
+            "user": "U09474U0DQB",
+            "ts": "1761298876.000000"
+        },
+        "client_msg_id": "651663A8-BB19-480E-A384-E21D8AB92AAF",
+        "text": "<@U09BS70TT4L> was asking me to quantify problem in numbers . How much costs the problem we are addressing. How we link lost in productivity in business metrics. ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761298392.503639",
+        "reply_count": 1,
+        "reply_users_count": 1,
+        "latest_reply": "1761299603.463629",
+        "reply_users": [
+            "U09BQ3R3SG2"
+        ],
+        "replies": [
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761299603.463629"
+            }
+        ],
+        "is_locked": false,
+        "subscribed": true,
+        "last_read": "1761299624.475834",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Ide1s",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "user",
+                                "user_id": "U09BS70TT4L"
+                            },
+                            {
+                                "type": "text",
+                                "text": " was asking me to quantify problem in numbers . How much costs the problem we are addressing. How we link lost in productivity in business metrics. "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "heart",
+                "users": [
+                    "U09BQ3R3SG2"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761299190.095929",
+        "client_msg_id": "483CEC73-E42D-4FD9-AB63-15CDBA814DBB",
+        "text": "1. Presenteeism – Employees are at work but not performing at their full potential due to stress, fatigue, or disengagement.\n2. Voluntary Turnover – Valuable employees who choose to leave the company, leading to loss of skills and productivity.\n3. Employee Engagement – The degree of motivation, commitment, and emotional connection employees have to their work and organization.",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "reply_count": 26,
+        "reply_users_count": 2,
+        "latest_reply": "1761332904.400899",
+        "reply_users": [
+            "U09BQ3R3SG2",
+            "U09474U0DQB"
+        ],
+        "replies": [
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761299711.203889"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761300083.701079"
+            },
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761300152.430729"
+            },
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761300162.274939"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761300489.010159"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761300525.074469"
+            },
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761300631.436789"
+            },
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761300675.389969"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761300872.133559"
+            },
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761301025.003639"
+            },
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761301125.851709"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761301201.144679"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761301312.839139"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761301396.709519"
+            },
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761301947.317009"
+            },
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761302025.418209"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761302304.415589"
+            },
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761302385.772269"
+            },
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761302488.626109"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761302585.202889"
+            },
+            {
+                "user": "U09BQ3R3SG2",
+                "ts": "1761303341.702999"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761303766.752239"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761303828.910879"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761303926.162509"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761309158.741259"
+            },
+            {
+                "user": "U09474U0DQB",
+                "ts": "1761332904.400899"
+            }
+        ],
+        "is_locked": false,
+        "subscribed": true,
+        "last_read": "1761332904.547659",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "1xs41",
+                "elements": [
+                    {
+                        "type": "rich_text_list",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Presenteeism – Employees are at work but not performing at their full potential due to stress, fatigue, or disengagement."
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Voluntary Turnover – Valuable employees who choose to leave the company, leading to loss of skills and productivity."
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Employee Engagement – The degree of motivation, commitment, and emotional connection employees have to their work and organization."
+                                    }
+                                ]
+                            }
+                        ],
+                        "style": "ordered",
+                        "indent": 0,
+                        "offset": 0,
+                        "border": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761299479.952949",
+        "client_msg_id": "4D1768F9-82CF-41D5-BC8C-824F58B63030",
+        "text": "Who we are paying now\n\n\t•\tEAP providers \/ mental health platforms (e.g., OpenUp, Headspace, Modern Health)\n\t•\t Survey tools (e.g., CultureAmp, Officevibe, Peakon)\n\t•\tWellbeing stipends or benefits (gym, therapy, wellness budget)",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "nt2Gi",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Who we are paying now\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\t•\tEAP providers \/ mental health platforms (e.g., OpenUp, Headspace, Modern Health)"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\t•\t Survey tools (e.g., CultureAmp, Officevibe, Peakon)"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\t•\tWellbeing stipends or benefits (gym, therapy, wellness budget)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "subtype": "thread_broadcast",
+        "user": "U09BQ3R3SG2",
+        "thread_ts": "1761298392.503639",
+        "root": {
+            "user": "U09474U0DQB",
+            "type": "message",
+            "ts": "1761298392.503639",
+            "edited": {
+                "user": "U09474U0DQB",
+                "ts": "1761298876.000000"
+            },
+            "client_msg_id": "651663A8-BB19-480E-A384-E21D8AB92AAF",
+            "text": "<@U09BS70TT4L> was asking me to quantify problem in numbers . How much costs the problem we are addressing. How we link lost in productivity in business metrics. ",
+            "team": "T09474TUVT5",
+            "thread_ts": "1761298392.503639",
+            "reply_count": 1,
+            "reply_users_count": 1,
+            "latest_reply": "1761299603.463629",
+            "reply_users": [
+                "U09BQ3R3SG2"
+            ],
+            "replies": [
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761299603.463629"
+                }
+            ],
+            "is_locked": false,
+            "subscribed": true,
+            "last_read": "1761299624.475834",
+            "blocks": [
+                {
+                    "type": "rich_text",
+                    "block_id": "Ide1s",
+                    "elements": [
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "user",
+                                    "user_id": "U09BS70TT4L"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " was asking me to quantify problem in numbers . How much costs the problem we are addressing. How we link lost in productivity in business metrics. "
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "message",
+        "ts": "1761299603.463629",
+        "client_msg_id": "49A04565-8B26-487E-8BB2-172652764089",
+        "text": "This is a good one. How do you quantify less than 100% productivity due to time out, disconnection etc. need to have an assumption of what 100% productivity looks like, as in, what are the delivery metrics. At the same time knowing that people are not machines and if you aim for 100% at all times, that leads to burnout ",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "8PlGp",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "This is a good one. How do you quantify less than 100% productivity due to time out, disconnection etc. need to have an assumption of what 100% productivity looks like, as in, what are the delivery metrics. At the same time knowing that people are not machines and if you aim for 100% at all times, that leads to burnout "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "bulb",
+                "users": [
+                    "U09474U0DQB"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "subtype": "thread_broadcast",
+        "user": "U09BQ3R3SG2",
+        "thread_ts": "1761299190.095929",
+        "root": {
+            "user": "U09474U0DQB",
+            "type": "message",
+            "ts": "1761299190.095929",
+            "client_msg_id": "483CEC73-E42D-4FD9-AB63-15CDBA814DBB",
+            "text": "1. Presenteeism – Employees are at work but not performing at their full potential due to stress, fatigue, or disengagement.\n2. Voluntary Turnover – Valuable employees who choose to leave the company, leading to loss of skills and productivity.\n3. Employee Engagement – The degree of motivation, commitment, and emotional connection employees have to their work and organization.",
+            "team": "T09474TUVT5",
+            "thread_ts": "1761299190.095929",
+            "reply_count": 26,
+            "reply_users_count": 2,
+            "latest_reply": "1761332904.400899",
+            "reply_users": [
+                "U09BQ3R3SG2",
+                "U09474U0DQB"
+            ],
+            "replies": [
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761299711.203889"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761300083.701079"
+                },
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761300152.430729"
+                },
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761300162.274939"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761300489.010159"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761300525.074469"
+                },
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761300631.436789"
+                },
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761300675.389969"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761300872.133559"
+                },
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761301025.003639"
+                },
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761301125.851709"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761301201.144679"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761301312.839139"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761301396.709519"
+                },
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761301947.317009"
+                },
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761302025.418209"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761302304.415589"
+                },
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761302385.772269"
+                },
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761302488.626109"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761302585.202889"
+                },
+                {
+                    "user": "U09BQ3R3SG2",
+                    "ts": "1761303341.702999"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761303766.752239"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761303828.910879"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761303926.162509"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761309158.741259"
+                },
+                {
+                    "user": "U09474U0DQB",
+                    "ts": "1761332904.400899"
+                }
+            ],
+            "is_locked": false,
+            "subscribed": true,
+            "last_read": "1761332904.547659",
+            "blocks": [
+                {
+                    "type": "rich_text",
+                    "block_id": "1xs41",
+                    "elements": [
+                        {
+                            "type": "rich_text_list",
+                            "elements": [
+                                {
+                                    "type": "rich_text_section",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "Presenteeism – Employees are at work but not performing at their full potential due to stress, fatigue, or disengagement."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "rich_text_section",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "Voluntary Turnover – Valuable employees who choose to leave the company, leading to loss of skills and productivity."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "rich_text_section",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "Employee Engagement – The degree of motivation, commitment, and emotional connection employees have to their work and organization."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "style": "ordered",
+                            "indent": 0,
+                            "offset": 0,
+                            "border": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "message",
+        "ts": "1761299711.203889",
+        "edited": {
+            "user": "U09BQ3R3SG2",
+            "ts": "1761299918.000000"
+        },
+        "client_msg_id": "33BA2A76-F13C-416B-9263-FA3FE9559CDE",
+        "text": "Again - are we trying to replace the tools we are already paying for? I suggest we don’t, it will alienate our HR teams. Rather - in the argumentation - take the usage rate of benefits paid as opposed to “we are paying for these surveys, benefits, packages” - let’s take that away because it is not working. \/\/ and we can try a thought experiment - the employer is only offering base pay+ bonus, no extras. At same level as rest of the market. What does that do to engagement and employer brand? ",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "qVbnJ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Again - are we trying to replace the tools we are already paying for? I suggest we don’t, it will alienate our HR teams. Rather - in the argumentation - take the usage rate of benefits paid as opposed to “we are paying for these surveys, benefits, packages” - let’s take that away because it is not working"
+                            },
+                            {
+                                "type": "text",
+                                "text": ". \/\/ and we can try a thought experiment - the employer is only offering base pay+ bonus, no extras. At same level as rest of the market. What does that do to engagement and employer brand? "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761300083.701079",
+        "client_msg_id": "D9661512-F25D-4C31-B909-6D3F9799E5FA",
+        "text": "I think the problem starts when we get so used to traditional way way of working. We know what are surveys. Let’s stick to something that is safe - why we should overcomplicate our lives and try to optimise our existing processes. The end result should  serve both company and people, but are we willing to look deeper than engagement surveys ? ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "SbiRu",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "I think the problem starts when we get so used to traditional way way of working. We know what are surveys. "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Let’s"
+                            },
+                            {
+                                "type": "text",
+                                "text": " stick to something that is safe - why we should overcomplicate our lives and try to optimise our existing processes. The end result should  serve both company and people, but are we willing to look deeper than engagement surveys ? "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09BQ3R3SG2",
+        "type": "message",
+        "ts": "1761300152.430729",
+        "client_msg_id": "8C0D4B98-A11A-4C5F-BFDC-B507107D3D33",
+        "text": "Oh, agreed. But do you want to ask people how they feel or observe them under a microscope and take the perspective of a scientist observing rats on a cage? ;) ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "g4499e988e99",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/4499e988e9954d96d85b3705196f5bcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+            "first_name": "Alise",
+            "real_name": "Alise Rupeka_personal",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "alise.rupeka",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "KN\/Ff",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Oh, agreed. But do you want to ask people how they feel or observe them under a microscope and take the perspective of a scientist observing rats on a cage? ;) "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09BQ3R3SG2",
+        "type": "message",
+        "ts": "1761300162.274939",
+        "client_msg_id": "1D087152-2D72-4177-84DB-2E2DFBD2ED4A",
+        "text": "(Yep, pushing it to make a point) ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "g4499e988e99",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/4499e988e9954d96d85b3705196f5bcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+            "first_name": "Alise",
+            "real_name": "Alise Rupeka_personal",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "alise.rupeka",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "\/D7SX",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "(Yep, pushing it to make a point) "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761300489.010159",
+        "client_msg_id": "11152968-A16E-458D-86B2-C0A624F3A04A",
+        "text": "Yes, that is exactly what I want to do. Because I don’t think we currently see the real picture what is going on in the organisation and when we do its already too late. I want to observe them under a microscope in a respectful and privacy first way ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "WuXaw",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Yes, that is exactly what I want to do. Because "
+                            },
+                            {
+                                "type": "text",
+                                "text": "I "
+                            },
+                            {
+                                "type": "text",
+                                "text": "don’t think we currently see the real picture what is going on in the organisation and when we do its already too late. I want to observe them under a microscope in a respectful and privacy first way "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761300525.074469",
+        "client_msg_id": "293FB55F-AAB2-45A0-BB2B-F72DD24C9678",
+        "text": "This is my perspective not as an HR but as an employee working in large corporations ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "iYi8t",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "This is my perspective not as an HR but as an employee working in large corporations "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09BQ3R3SG2",
+        "type": "message",
+        "ts": "1761300631.436789",
+        "client_msg_id": "4DEB8674-3BFF-4BFA-9E79-C78ED4E7368D",
+        "text": "Well, would you be happy to share your full data scope with an understanding that it might be used in ways that you have not intended? The reality, not fiction ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "g4499e988e99",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/4499e988e9954d96d85b3705196f5bcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+            "first_name": "Alise",
+            "real_name": "Alise Rupeka_personal",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "alise.rupeka",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "sjAWp",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Well, would you be happy to share your full data scope with an understanding that it might be used in ways that you have not intended? The reality, not fiction "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09BQ3R3SG2",
+        "type": "message",
+        "ts": "1761300675.389969",
+        "client_msg_id": "D7346175-044E-4F88-9E3F-BF6D800B0C74",
+        "text": "(And worth noting that people perform less well when observed under a microscope, especially when they know they are being observed)",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "g4499e988e99",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/4499e988e9954d96d85b3705196f5bcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+            "first_name": "Alise",
+            "real_name": "Alise Rupeka_personal",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "alise.rupeka",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "8VZU2",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "(And worth noting that people perform less well when observed under a microscope, especially when they know they are being observed)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U09474U0DQB"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761300872.133559",
+        "client_msg_id": "B0C509D7-2C03-472C-A44D-2F62A8D9AE5B",
+        "text": "But we don’t observe them on individual level ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "bsLs1",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "But we "
+                            },
+                            {
+                                "type": "text",
+                                "text": "don’t"
+                            },
+                            {
+                                "type": "text",
+                                "text": " observe them on individual level "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09BQ3R3SG2",
+        "type": "message",
+        "ts": "1761301025.003639",
+        "client_msg_id": "31025526-2A04-4CC1-AC0A-16D8A8A544DB",
+        "text": "But we do ;) we just don’t show the data on individual level, but we gather the data on each individual. And as long as we do that, especially in companies with low trust, there is always the fear that this will become “Big Brother” monitoring ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "g4499e988e99",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/4499e988e9954d96d85b3705196f5bcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+            "first_name": "Alise",
+            "real_name": "Alise Rupeka_personal",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "alise.rupeka",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "QS5DJ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "But we do ;) we just "
+                            },
+                            {
+                                "type": "text",
+                                "text": "don’t"
+                            },
+                            {
+                                "type": "text",
+                                "text": " show the data on individual level, but we gather the data on each individual. And as long as we do that, especially in companies with low trust, there is always the fear that this will become “Big Brother” monitoring "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09BQ3R3SG2",
+        "type": "message",
+        "ts": "1761301125.851709",
+        "edited": {
+            "user": "U09BQ3R3SG2",
+            "ts": "1761301268.000000"
+        },
+        "client_msg_id": "6B6652E7-DA20-4833-AB27-ADE34FD4B562",
+        "text": "I wonder how can we show in the way we pitch the story, that human performance and engagement is ultimately han connection driven. I.e., we know from research that for neurotypical (and in neurodivergent as well, just the trust patters might need to be different)  individuals highest and most functional performance comes when there is a good connection to their colleagues, their leader and their company. How can we show that? ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "g4499e988e99",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/4499e988e9954d96d85b3705196f5bcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+            "first_name": "Alise",
+            "real_name": "Alise Rupeka_personal",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "alise.rupeka",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "S\/r2m",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "I wonder how can we show in the way we pitch the story, that human performance and engagement is ultimately han connection driven. I.e., we know from research that for "
+                            },
+                            {
+                                "type": "text",
+                                "text": "neurotypical (and in neurodivergent as well, just the trust patters might need to be different) "
+                            },
+                            {
+                                "type": "text",
+                                "text": " individuals highest and most functional performance comes when there is a good connection to their colleagues, their leader and their company. How can we show that? "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "bulb",
+                "users": [
+                    "U09474U0DQB"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761301201.144679",
+        "client_msg_id": "8F0E4937-5AC1-4F43-A5E4-002CB02F79C6",
+        "text": "Our goal is to frame the solution that we respect privacy, we can see department\/team trends, but never how each individual is feeling.",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "nBhZs",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Our goal is to frame the solution that we respect privacy, we can see department\/team trends, but never how each individual is feeling."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761301312.839139",
+        "client_msg_id": "8DA8BCAF-D6D4-4CCE-BBE0-C927F2C4BA8D",
+        "text": "The goal of demonstrating it is by showing these feedback loops on actions they take. Good connection and cohesion can be measured combining passive and sentiment  signals ( like ONA around others ) with active signals to reduce noise. ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "yVYQ3",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "The goal of demonstrating it is by showing these feedback loops on actions they take. Good connection and cohesion can be measured combining passive and sentiment  signals ( like ONA around others ) with active signals to reduce noise. "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761301396.709519",
+        "client_msg_id": "0D5A46FC-BAF7-4A8D-AF2E-EC42E9D30293",
+        "text": "What is the challenge? Organisations don’t take actions. It needs to be designed with least effort and friction for them hence passive data that is always in the background that you can experiment with ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "EQCJm",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "What is the challenge"
+                            },
+                            {
+                                "type": "text",
+                                "text": "?"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Organisations don’t"
+                            },
+                            {
+                                "type": "text",
+                                "text": " take actions. It needs to be designed with least effort and friction for them hence passive data that is always in the background that you can experiment with "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09BQ3R3SG2",
+        "type": "message",
+        "ts": "1761301947.317009",
+        "client_msg_id": "D7E38CC5-D874-4B6D-90A0-0AAC3E5F41C3",
+        "text": "At the end of the day - as an employee, whom do you want to see you and take action to support you? Not some ”organization”, but your manager, your team-mates, your managers manager and perhaps your HR if you trust them. So perhaps let’s start from a very practical and pragmatic story, and then quantify the costs of doing nothing. Instead of trying to boil the ocean of HR spend ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "g4499e988e99",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/4499e988e9954d96d85b3705196f5bcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+            "first_name": "Alise",
+            "real_name": "Alise Rupeka_personal",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "alise.rupeka",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "WeioD",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "At the end of the day - as an employee, whom do you want to see you and take action to support you? Not some ”organization”, but your manager, your team-mates, your managers manager and perhaps your HR if you trust them. So perhaps "
+                            },
+                            {
+                                "type": "text",
+                                "text": "let’s"
+                            },
+                            {
+                                "type": "text",
+                                "text": " start from a very practical and pragmatic "
+                            },
+                            {
+                                "type": "text",
+                                "text": "story"
+                            },
+                            {
+                                "type": "text",
+                                "text": ", and then quantify the costs of doing nothing. Instead of trying to boil the ocean of HR spend "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09BQ3R3SG2",
+        "type": "message",
+        "ts": "1761302025.418209",
+        "client_msg_id": "7E244C3B-D4BB-4A73-9993-1FE0F8EFB997",
+        "text": "You already have the storyline ;) you’ve mentioned it a few times. Let’s to to quantify that, and then add of the full picture ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "g4499e988e99",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/4499e988e9954d96d85b3705196f5bcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+            "first_name": "Alise",
+            "real_name": "Alise Rupeka_personal",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "alise.rupeka",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "\/SxIa",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "You already have the storyline ;) "
+                            },
+                            {
+                                "type": "text",
+                                "text": "you’ve"
+                            },
+                            {
+                                "type": "text",
+                                "text": " mentioned it a few times. "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Let’s"
+                            },
+                            {
+                                "type": "text",
+                                "text": " to to quantify that, and then add of the full picture "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761302304.415589",
+        "client_msg_id": "38568FB3-8126-4754-92F4-F3B2C776918A",
+        "text": "I don’t choose my teammates, I don’t choose my manager, I also don’t choose projects very often. This combination and environment comes from within the organisation AND individual. ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "ZXkOB",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "I "
+                            },
+                            {
+                                "type": "text",
+                                "text": "don’t"
+                            },
+                            {
+                                "type": "text",
+                                "text": " choose my teammates, "
+                            },
+                            {
+                                "type": "text",
+                                "text": "I don’t"
+                            },
+                            {
+                                "type": "text",
+                                "text": " choose my manager, I also "
+                            },
+                            {
+                                "type": "text",
+                                "text": "don’t"
+                            },
+                            {
+                                "type": "text",
+                                "text": " choose projects very often"
+                            },
+                            {
+                                "type": "text",
+                                "text": "."
+                            },
+                            {
+                                "type": "text",
+                                "text": " This combination and environment comes from within the organisation AND individual. "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09BQ3R3SG2",
+        "type": "message",
+        "ts": "1761302385.772269",
+        "client_msg_id": "5F12FD25-1252-4C25-BB43-12AE3F88D464",
+        "text": "Well, practical question- why did you chose to work for this employer? And do employees chose who they want to work for - or how does that happen ?; ;)",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "g4499e988e99",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/4499e988e9954d96d85b3705196f5bcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+            "first_name": "Alise",
+            "real_name": "Alise Rupeka_personal",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "alise.rupeka",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Rfa+7",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Well, practical question- why did you chose to work for this employer? And do employees chose who they want to work for - or how does that happen ?; ;)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09BQ3R3SG2",
+        "type": "message",
+        "ts": "1761302488.626109",
+        "client_msg_id": "4BBA3B3F-2D41-4510-AE49-95F90E28A500",
+        "text": "PS: that sounds like a highly unempowering situation - I.e., no power to influence what you will do, with whine and how. Psychologists would say perfect recipe for burnout ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "g4499e988e99",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/4499e988e9954d96d85b3705196f5bcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+            "first_name": "Alise",
+            "real_name": "Alise Rupeka_personal",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "alise.rupeka",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "nkqGy",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "PS: that sounds like a highly unempowering situation - I.e., no power to influence what you will do, with whine and how. Psychologists would say perfect recipe for burnout "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761302585.202889",
+        "client_msg_id": "99C05B79-49FC-4812-B36F-D7990A5781FC",
+        "text": "As employees we can choose employer but very rarely we can choose our manager or team that we work with ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "96uJ\/",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "As employees we can choose employer but very rarely we can choose our manager or team that we work with "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09BQ3R3SG2",
+        "type": "message",
+        "ts": "1761303341.702999",
+        "client_msg_id": "5829E53B-7DBB-4DEB-A4F9-71E6281B5AFC",
+        "text": "Hmm, I wonder if you evaluate if you’d like to work for the manager that interviews you. At expert level that’s often what people chose (or from feedback surveys why people leave companies - and yep, can second that)",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "g4499e988e99",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/4499e988e9954d96d85b3705196f5bcd.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-72.png",
+            "first_name": "Alise",
+            "real_name": "Alise Rupeka_personal",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "alise.rupeka",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "zq7IP",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Hmm, I wonder if you evaluate if "
+                            },
+                            {
+                                "type": "text",
+                                "text": "you’d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " like to work for the manager that interviews you. At expert level "
+                            },
+                            {
+                                "type": "text",
+                                "text": "that’s"
+                            },
+                            {
+                                "type": "text",
+                                "text": " often what people chose (or from feedback surveys why people leave companies - and yep, can second that)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761303766.752239",
+        "client_msg_id": "0BE21CFF-1BCA-437E-A6A5-50D299588B34",
+        "text": "You can choose managers before you come to the company but you don’t know their actual working style untill you are actually there. ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "4Gdc9",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "You can choose managers before you come to the company but you don’t know their actual working style untill you are actually there. "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "heart",
+                "users": [
+                    "U09BQ3R3SG2"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761303828.910879",
+        "client_msg_id": "E5F83C51-9BED-49DA-9B63-B4E6A7225D91",
+        "text": "Same as how teams collaborate cross functionally. There is so much you can’t survey on in real time. ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "co6cE",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Same as how teams collaborate cross functionally. There is so much you "
+                            },
+                            {
+                                "type": "text",
+                                "text": "can’t"
+                            },
+                            {
+                                "type": "text",
+                                "text": " survey on in real time. "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761303926.162509",
+        "edited": {
+            "user": "U09474U0DQB",
+            "ts": "1761303955.000000"
+        },
+        "client_msg_id": "DF97C8DA-E846-43BD-B5F2-ED3398734EE1",
+        "text": "And what is the maximum capacity of surveys  people will do per year? ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "zJMIL",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "And what is the maximum capacity"
+                            },
+                            {
+                                "type": "text",
+                                "text": " of surveys "
+                            },
+                            {
+                                "type": "text",
+                                "text": " people will do per year? "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761309158.741259",
+        "client_msg_id": "B6130C98-63DC-4802-A554-73C9FD011E7C",
+        "text": "“Leaving it to surveys is like checking the fire alarm after the fire. Let’s spot the sparks before they burn out our best performers”",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "l4HZT",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "“Leaving it to surveys is like checking the fire alarm after the fire. Let’s spot the sparks before they burn out our best performers”"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "heart",
+                "users": [
+                    "U09BQ3R3SG2"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1761332904.400899",
+        "client_msg_id": "0A226537-E48D-4E08-8808-3EFCC87F91BB",
+        "text": "I realised that this tool perhaps could serve even better to CEOs and managers with direct ownership of performance and people ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "thread_ts": "1761299190.095929",
+        "parent_user_id": "U09474U0DQB",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "tXFXn",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "I realised that this tool perhaps could serve even better to CEOs and managers with direct ownership of performance and people "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

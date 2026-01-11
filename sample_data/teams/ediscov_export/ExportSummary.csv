@@ -1,0 +1,21 @@
+Id,Type,Subject,Sender,Recipients,DateSent,HasAttachments,AttachmentCount,ConversationId
+msg_001,IM,,Alise.rupeka@gmail.com,valdis@orgnet.com,2025-01-10T09:15:00Z,false,0,conv_001
+msg_002,IM,,valdis@orgnet.com,Alise.rupeka@gmail.com,2025-01-10T09:16:30Z,false,0,conv_001
+msg_003,IM,,Alise.rupeka@gmail.com,valdis@orgnet.com,2025-01-10T09:18:00Z,true,1,conv_001
+msg_004,ChannelMessage,Product Roadmap Review,alise.virbule@gmail.com,Alise.rupeka@gmail.com;consutherland@gmail.com,2025-01-10T10:30:00Z,false,0,conv_002
+msg_005,ChannelMessage,Re: Product Roadmap Review,Alise.rupeka@gmail.com,alise.virbule@gmail.com;consutherland@gmail.com,2025-01-10T10:35:00Z,false,0,conv_002
+msg_006,ChannelMessage,Re: Product Roadmap Review,consutherland@gmail.com,Alise.rupeka@gmail.com;alise.virbule@gmail.com,2025-01-10T10:40:00Z,true,2,conv_002
+msg_007,IM,,zanestorha16@gmail.com,emmanuelennocent@gmail.com,2025-01-10T11:00:00Z,false,0,conv_003
+msg_008,IM,,emmanuelennocent@gmail.com,zanestorha16@gmail.com,2025-01-10T11:05:00Z,false,0,conv_003
+msg_009,ChannelMessage,Sprint Planning,zanestorha16@gmail.com,valdis@orgnet.com;emmanuelennocent@gmail.com;annaabolaart@gmail.com,2025-01-10T14:00:00Z,false,0,conv_004
+msg_010,ChannelMessage,Re: Sprint Planning,valdis@orgnet.com,zanestorha16@gmail.com;emmanuelennocent@gmail.com;annaabolaart@gmail.com,2025-01-10T14:15:00Z,false,0,conv_004
+msg_011,IM,,annaabolaart@gmail.com,valdis@orgnet.com,2025-01-11T09:00:00Z,false,0,conv_005
+msg_012,IM,,valdis@orgnet.com,annaabolaart@gmail.com,2025-01-11T09:10:00Z,false,0,conv_005
+msg_013,ChannelMessage,Data Pipeline Update,francescadurham@gmail.com,zanestorha16@gmail.com;valdis@orgnet.com,2025-01-11T10:00:00Z,false,0,conv_006
+msg_014,ChannelMessage,Re: Data Pipeline Update,valdis@orgnet.com,francescadurham@gmail.com;zanestorha16@gmail.com,2025-01-11T10:15:00Z,true,1,conv_006
+msg_015,IM,,rana.alzaidi@digitalzone.com,emmanuelennocent@gmail.com,2025-01-11T13:30:00Z,false,0,conv_007
+msg_016,ChannelMessage,Marketing Campaign Ideas,kathy.wolkner@smartcommerce.co,Alise.rupeka@gmail.com;doyourbest99@gmail.com,2025-01-11T15:00:00Z,false,0,conv_008
+msg_017,ChannelMessage,Re: Marketing Campaign Ideas,doyourbest99@gmail.com,kathy.wolkner@smartcommerce.co;Alise.rupeka@gmail.com,2025-01-11T15:20:00Z,false,0,conv_008
+msg_018,IM,,Alise.rupeka@gmail.com,zanestorha16@gmail.com,2025-01-12T09:00:00Z,false,0,conv_009
+msg_019,IM,,zanestorha16@gmail.com,Alise.rupeka@gmail.com,2025-01-12T09:05:00Z,false,0,conv_009
+msg_020,ChannelMessage,Design Review,alise.virbule@gmail.com,Alise.rupeka@gmail.com;consutherland@gmail.com;kathy.wolkner@smartcommerce.co,2025-01-12T11:00:00Z,true,3,conv_010

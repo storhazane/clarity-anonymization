@@ -1,0 +1,78 @@
+[
+    {
+        "subtype": "channel_join",
+        "user": "U09474U0DQB",
+        "text": "<@U09474U0DQB> has joined the channel",
+        "type": "message",
+        "ts": "1751641660.265939"
+    },
+    {
+        "text": "",
+        "files": [
+            {
+                "id": "F094DTE8CLS",
+                "created": 1751641662,
+                "timestamp": 1751641662,
+                "name": "Company_Handbook",
+                "title": "Company Handbook",
+                "mimetype": "application\/vnd.slack-docs",
+                "filetype": "quip",
+                "pretty_type": "Canvas",
+                "user": "U09474U0DQB",
+                "user_team": "T09474TUVT5",
+                "editable": true,
+                "size": 1384,
+                "mode": "quip",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "url_private": "https:\/\/files.slack.com\/files-pri\/T09474TUVT5-F094DTE8CLS\/canvas?token=xoxe-9143163981923-9887240795207-9912311854977-a3a45f17dd7d446b48c043982559eee7",
+                "url_private_download": "https:\/\/files.slack.com\/files-pri\/T09474TUVT5-F094DTE8CLS\/download\/canvas?token=xoxe-9143163981923-9887240795207-9912311854977-a3a45f17dd7d446b48c043982559eee7",
+                "permalink": "https:\/\/clarity2025.slack.com\/docs\/T09474TUVT5\/F094DTE8CLS",
+                "permalink_public": "https:\/\/slack-files.com\/T09474TUVT5-F094DTE8CLS-664bed7d69",
+                "url_static_preview": "https:\/\/clarity2025.slack.com\/docs\/T09474TUVT5\/F094DTE8CLS\/mobile",
+                "quip_thread_id": "ROS9AAz63gZ",
+                "updated": 1761823917,
+                "update_notification": 1751641663,
+                "canvas_readtime": 0.78362103572862,
+                "is_starred": false,
+                "skipped_shares": true,
+                "teams_shared_with": [],
+                "is_restricted_sharing_enabled": false,
+                "has_rich_preview": false,
+                "file_access": "visible",
+                "access": "owner",
+                "org_or_workspace_access": "none",
+                "title_blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "l3ypj",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Company Handbook"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "canvas_creator_id": "U09474U0DQB",
+                "team_pref_version_history_enabled": true,
+                "canvas_printing_enabled": true,
+                "is_ai_suggested": false
+            }
+        ],
+        "upload": false,
+        "user": "U09474U0DQB",
+        "display_as_bot": false,
+        "type": "message",
+        "ts": "1751641664.259419"
+    }
+]

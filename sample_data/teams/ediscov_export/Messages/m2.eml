@@ -1,0 +1,8 @@
+From: Bob Jones <bob@example.com>
+To: Alice Smith <alice@example.com>
+Subject: CI blockers
+Date: Sat, 01 Nov 2025 09:16:30 +0000
+Message-ID: <m2@contoso>
+Content-Type: text/plain; charset=UTF-8
+
+Running 2 blockers: CI and staging DB.

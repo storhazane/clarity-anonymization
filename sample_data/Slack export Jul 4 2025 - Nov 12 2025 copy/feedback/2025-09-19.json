@@ -1,0 +1,51 @@
+[
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1758274846.409519",
+        "edited": {
+            "user": "U09474U0DQB",
+            "ts": "1758377530.000000"
+        },
+        "client_msg_id": "6E8C715C-FA6C-440D-ACD8-B8EEA5BAE688",
+        "text": "<https:\/\/clarity-n9i9.vercel.app>",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "cJ2SN",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "link",
+                                "url": "https:\/\/clarity-n9i9.vercel.app"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "subtype": "channel_join",
+        "user": "U09BQ3R3SG2",
+        "text": "<@U09BQ3R3SG2> has joined the channel",
+        "type": "message",
+        "ts": "1758300212.637059"
+    }
+]

@@ -1,0 +1,67 @@
+[
+    {
+        "subtype": "channel_join",
+        "user": "U09474U0DQB",
+        "text": "<@U09474U0DQB> has joined the channel",
+        "type": "message",
+        "ts": "1755935543.016569"
+    },
+    {
+        "subtype": "channel_join",
+        "user": "U09BS70TT4L",
+        "text": "<@U09BS70TT4L> has joined the channel",
+        "inviter": "U09474U0DQB",
+        "type": "message",
+        "ts": "1755935545.063869"
+    },
+    {
+        "text": "",
+        "files": [
+            {
+                "id": "F09BPQU4TLM",
+                "created": 1755977064,
+                "timestamp": 1755977064,
+                "name": "Untitled",
+                "title": "Untitled",
+                "mimetype": "application\/vnd.slack-docs",
+                "filetype": "quip",
+                "pretty_type": "Canvas",
+                "user": "U09474U0DQB",
+                "user_team": "T09474TUVT5",
+                "editable": true,
+                "size": 0,
+                "mode": "quip",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "url_private": "https:\/\/files.slack.com\/files-pri\/T09474TUVT5-F09BPQU4TLM\/canvas?token=xoxe-9143163981923-9887240795207-9912311854977-a3a45f17dd7d446b48c043982559eee7",
+                "url_private_download": "https:\/\/files.slack.com\/files-pri\/T09474TUVT5-F09BPQU4TLM\/download\/canvas?token=xoxe-9143163981923-9887240795207-9912311854977-a3a45f17dd7d446b48c043982559eee7",
+                "permalink": "https:\/\/clarity2025.slack.com\/docs\/T09474TUVT5\/F09BPQU4TLM",
+                "permalink_public": "https:\/\/slack-files.com\/T09474TUVT5-F09BPQU4TLM-37ec66d37e",
+                "url_static_preview": "https:\/\/clarity2025.slack.com\/docs\/T09474TUVT5\/F09BPQU4TLM\/mobile",
+                "quip_thread_id": "TBR9AAmFKCM",
+                "update_notification": null,
+                "is_starred": false,
+                "skipped_shares": true,
+                "teams_shared_with": [],
+                "is_restricted_sharing_enabled": false,
+                "has_rich_preview": false,
+                "file_access": "visible",
+                "access": "owner",
+                "org_or_workspace_access": "none",
+                "canvas_creator_id": "U09474U0DQB",
+                "team_pref_version_history_enabled": true,
+                "canvas_printing_enabled": true,
+                "is_ai_suggested": false
+            }
+        ],
+        "upload": false,
+        "user": "U09474U0DQB",
+        "display_as_bot": false,
+        "type": "message",
+        "ts": "1755977065.501029"
+    }
+]

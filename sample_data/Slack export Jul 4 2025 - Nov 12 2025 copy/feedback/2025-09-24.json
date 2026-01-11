@@ -1,0 +1,162 @@
+[
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1758705714.987589",
+        "client_msg_id": "D311B6C5-F51A-4529-9934-7E079BBEA26C",
+        "text": "Early thoughts on triggers and fields: It’s challenging at this stage to determine the most effective context for time-sensitive triggers. However, the design could serve as a communication channel as a starting point to engage multiple teams based on specific conditions and track engagement (e.g., response rates). For example, it could support team-specific communication strategy .",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "eHpos",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Early thoughts on triggers and fields: It’s challenging at this stage to determine the most effective context for time-sensitive triggers. However, the design could serve as a communication channel as a starting point to engage multiple teams based on specific conditions and track engagement (e.g., response rates). For example, it could support team-specific communication strategy ."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1758705775.927629",
+        "client_msg_id": "4FED31B5-FDD9-4CA4-A61B-86D0ED475DA2",
+        "text": "For time series data mapping we would need to go back to historical data and analyze potential events that happened during drops\/peaks to provide these scenarios ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "7e43j",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "For time series data mapping we would need to go back to historical data and analyze potential events that happened during drops\/peaks to provide these scenarios "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1758705848.908309",
+        "client_msg_id": "378289AE-47EB-40E9-8186-B0FB532090C1",
+        "text": "Regards to data - open questions around how much of communication happens within vs outside the slack and how much we can capture ( what other dominating platforms are used per department) ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "61fOW",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Regards to data - open questions around how much of communication happens within vs outside the slack and how much we can capture ( what other dominating platforms are used per department"
+                            },
+                            {
+                                "type": "text",
+                                "text": ")"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1758711519.700879",
+        "client_msg_id": "46E65170-7FBC-40DA-975A-423CC82EEDEE",
+        "text": "Feel free to give your further input\/thoughts if any ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "lJ+Uy",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Feel free to give your further input\/thoughts if any "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

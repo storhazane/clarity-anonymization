@@ -1,0 +1,97 @@
+[
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1762360905.213559",
+        "edited": {
+            "user": "U09474U0DQB",
+            "ts": "1762363634.000000"
+        },
+        "client_msg_id": "9A53E921-6D9B-4EB7-B93B-45B863A30FD2",
+        "text": "Hey everyone :wave:\n\nWe’re making it super simple to analyze sensitive data safely and instantly — no heavy setup needed.\n\n:bulb: What we’re offering\nAs part of our MVP testing, we’re running a free pre-pilot where we:\n• Look at your historical communication data (from the last 6–12 months)\n• Review key business events from that time\n• Map them against employee communication patterns to spot trends and insights that can guide future decisions\n\nIt’s completely free — you get valuable insights, and we learn how to make the product better.\n\n:file_folder: What you need: \n• A JSON file from Slack or MS Teams\n• A CSV export from your HR system\n\nWe’ve made it super easy — there’s an open-source GitHub repo with all the steps to anonymize your data automatically. You can double-check that nothing confidential is included before sharing. Once it’s ready, just upload the anonymized CSV to Google Drive or Dropbox and share the link with us.\n\n:handshake: How we’ll work together\nYou’ll be able to:\n• Ask specific questions you want us to explore in the data\n• Collaborate with us as we shape the product\n\nThat way, we’re building something genuinely useful — together :rocket:\n\nIf you know someone who’d be curious about how employees communicate and behave during key business events, feel free to share this with them too!",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "yj7lf",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Hey everyone "
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "wave",
+                                "unicode": "1f44b"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n\nWe’re making it super simple to analyze sensitive data safely and instantly — no heavy setup needed.\n\n"
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "bulb",
+                                "unicode": "1f4a1"
+                            },
+                            {
+                                "type": "text",
+                                "text": " What we’re offering\nAs part of our MVP testing, we’re running a free pre-pilot where we:\n• Look at your historical communication data (from the last 6–12 months)\n• Review key business events from that time\n• Map them against employee communication patterns to spot trends and insights that can guide future decisions\n\nIt’s completely free — you get valuable insights, and we learn how to make the product better.\n\n"
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "file_folder",
+                                "unicode": "1f4c1"
+                            },
+                            {
+                                "type": "text",
+                                "text": " What you need: \n• A "
+                            },
+                            {
+                                "type": "text",
+                                "text": "JSON"
+                            },
+                            {
+                                "type": "text",
+                                "text": " file from Slack or MS Teams\n• A CSV export from your HR system\n\nWe’ve made it super easy — there’s an open-source GitHub repo with all the steps to anonymize your data automatically. You can double-check that nothing confidential is included before sharing. Once it’s ready, just upload the anonymized CSV to Google Drive or Dropbox and share the link with us.\n\n"
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "handshake",
+                                "unicode": "1f91d"
+                            },
+                            {
+                                "type": "text",
+                                "text": " How we’ll work together\nYou’ll be able to:\n• Ask specific questions you want us to explore in the data\n• Collaborate with us as we shape the product\n\nThat way, we’re building something genuinely useful — together "
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "rocket",
+                                "unicode": "1f680"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n\nIf you know someone who’d be curious about how employees communicate and behave during key business events, feel free to share this with them too!"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

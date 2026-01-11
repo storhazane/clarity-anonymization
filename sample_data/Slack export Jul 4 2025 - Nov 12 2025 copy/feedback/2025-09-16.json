@@ -1,0 +1,294 @@
+[
+    {
+        "subtype": "channel_join",
+        "user": "U09FCBHPB7V",
+        "text": "<@U09FCBHPB7V> has joined the channel",
+        "type": "message",
+        "ts": "1758031271.645009"
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1758048850.583099",
+        "client_msg_id": "9a1510c9-03f6-4126-aa71-959fe489693a",
+        "text": "Guys, I’m sharing an early demo that can help validate our initial hypothesis and support pilot efforts.\nThe first user flow looks like this:\n1. Create a new category\n2. Initiate support\n3. Support gets stored\n4. Redirect to the dashboard\nFrom there, you should be able to track engagement and the leading passive metrics tied to it.\nPlease try the flow yourselves and focus on the following:\n• Do the actions I’m triggering on the data make sense?\n• Does the data feel trustworthy and provide the right context?\n• Is anything missing that you would want to add or remove?\n• Is the experience intuitive?\n• Are the tooltips clear?\nRaise any concerns or feedback as you go.",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "ap6MH",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Guys, I’m sharing an early demo that can help validate our initial hypothesis and support pilot efforts.\nThe first user flow looks like this:\n"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_list",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Create a new category"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Initiate support"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Support gets stored"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Redirect to the dashboard"
+                                    }
+                                ]
+                            }
+                        ],
+                        "style": "ordered",
+                        "indent": 0,
+                        "border": 0
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "From there, you should be able to track engagement and the leading passive metrics tied to it.\nPlease try the flow yourselves and focus on the following:\n"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_list",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Do the actions I’m triggering on the data make sense?"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Does the data feel trustworthy and provide the right context?"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Is anything missing that you would want to add or remove?"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Is the experience intuitive?"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Are the tooltips clear?"
+                                    }
+                                ]
+                            }
+                        ],
+                        "style": "bullet",
+                        "indent": 0,
+                        "border": 0
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Raise any concerns or feedback as you go."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "heart",
+                "users": [
+                    "U09EWMSUV0A",
+                    "U09BQ3R3SG2",
+                    "U09FXNQ6T0Q"
+                ],
+                "count": 3
+            }
+        ]
+    },
+    {
+        "text": "",
+        "files": [
+            {
+                "id": "F09FGANAFNH",
+                "created": 1758048882,
+                "timestamp": 1758048882,
+                "name": "Screen-Recording.mp4.mp4",
+                "title": "Screen-Recording.mp4.mp4",
+                "mimetype": "video\/mp4",
+                "filetype": "mp4",
+                "pretty_type": "MPEG 4 Video",
+                "user": "U09474U0DQB",
+                "user_team": "T09474TUVT5",
+                "editable": false,
+                "size": 8366177,
+                "mode": "hosted",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "is_transcription_region_supported": true,
+                "transcription": {
+                    "status": "none"
+                },
+                "mp4": "https:\/\/files.slack.com\/files-tmb\/T09474TUVT5-F09FGANAFNH-e9ca82d8d9\/screen-recording.mp4.mp4?t=xoxe-9143163981923-9887240795207-9912311854977-a3a45f17dd7d446b48c043982559eee7",
+                "url_private": "https:\/\/files.slack.com\/files-tmb\/T09474TUVT5-F09FGANAFNH-e9ca82d8d9\/screen-recording.mp4.mp4?t=xoxe-9143163981923-9887240795207-9912311854977-a3a45f17dd7d446b48c043982559eee7",
+                "url_private_download": "https:\/\/files.slack.com\/files-pri\/T09474TUVT5-F09FGANAFNH\/download\/screen-recording.mp4.mp4?token=xoxe-9143163981923-9887240795207-9912311854977-a3a45f17dd7d446b48c043982559eee7",
+                "hls": "https:\/\/files.slack.com\/files-tmb\/T09474TUVT5-F09FGANAFNH-e9ca82d8d9\/file.m3u8?_xcb=6ce80&t=xoxe-9143163981923-9887240795207-9912311854977-a3a45f17dd7d446b48c043982559eee7",
+                "hls_embed": "data:application\/vnd.apple.mpegurl;base64,I0VYVE0zVQojRVhULVgtVkVSU0lPTjozCiNFWFQtWC1JTkRFUEVOREVOVC1TRUdNRU5UUwojRVhULVgtU1RSRUFNLUlORjpCQU5EV0lEVEg9MTY4NTgwMixBVkVSQUdFLUJBTkRXSURUSD02ODI3NTksQ09ERUNTPSJhdmMxLjY0MDAyOCxtcDRhLjQwLjUiLFJFU09MVVRJT049MTkyMHgxMDgwLEZSQU1FLVJBVEU9MjkuOTcwCmRhdGE6YXBwbGljYXRpb24vdm5kLmFwcGxlLm1wZWd1cmw7YmFzZTY0LEkwVllWRTB6VlFvalJWaFVMVmd0VmtWU1UwbFBUam96Q2lORldGUXRXQzFVUVZKSFJWUkVWVkpCVkVsUFRqbzNDaU5GV0ZRdFdDMU5SVVJKUVMxVFJWRlZSVTVEUlRveENpTkZXRlF0V0MxUVRFRlpURWxUVkMxVVdWQkZPbFpQUkFvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWREE1TkRjMFZGVldWRFV0UmpBNVJrZEJUa0ZHVGtndFpUbGpZVGd5WkRoa09TOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TVM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRBNU5EYzBWRlZXVkRVdFJqQTVSa2RCVGtGR1RrZ3RaVGxqWVRneVpEaGtPUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBd01pNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEQTVORGMwVkZWV1ZEVXRSakE1UmtkQlRrRkdUa2d0WlRsallUZ3laRGhrT1M5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdNeTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWREE1TkRjMFZGVldWRFV0UmpBNVJrZEJUa0ZHVGtndFpUbGpZVGd5WkRoa09TOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3TkM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRBNU5EYzBWRlZXVkRVdFJqQTVSa2RCVGtGR1RrZ3RaVGxqWVRneVpEaGtPUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBd05TNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEQTVORGMwVkZWV1ZEVXRSakE1UmtkQlRrRkdUa2d0WlRsallUZ3laRGhrT1M5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdOaTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWREE1TkRjMFZGVldWRFV0UmpBNVJrZEJUa0ZHVGtndFpUbGpZVGd5WkRoa09TOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF3Tnk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRBNU5EYzBWRlZXVkRVdFJqQTVSa2RCVGtGR1RrZ3RaVGxqWVRneVpEaGtPUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBd09DNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEQTVORGMwVkZWV1ZEVXRSakE1UmtkQlRrRkdUa2d0WlRsallUZ3laRGhrT1M5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXdPUzUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWREE1TkRjMFZGVldWRFV0UmpBNVJrZEJUa0ZHVGtndFpUbGpZVGd5WkRoa09TOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TUM1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRBNU5EYzBWRlZXVkRVdFJqQTVSa2RCVGtGR1RrZ3RaVGxqWVRneVpEaGtPUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBeE1TNTBjd29qUlZoVVNVNUdPall1TURBMkxBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEQTVORGMwVkZWV1ZEVXRSakE1UmtkQlRrRkdUa2d0WlRsallUZ3laRGhrT1M5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhNaTUwY3dvalJWaFVTVTVHT2pZdU1EQTJMQXBvZEhSd2N6b3ZMMlpwYkdWekxuTnNZV05yTG1OdmJTOW1hV3hsY3kxMGJXSXZWREE1TkRjMFZGVldWRFV0UmpBNVJrZEJUa0ZHVGtndFpUbGpZVGd5WkRoa09TOW1hV3hsWDBoZk1qWTBYekU1TWpCNE1UQTRNRjgyTlRBd1MwSlFVMTgzVVZaQ1VsOHdNREF4TXk1MGN3b2pSVmhVU1U1R09qWXVNREEyTEFwb2RIUndjem92TDJacGJHVnpMbk5zWVdOckxtTnZiUzltYVd4bGN5MTBiV0l2VkRBNU5EYzBWRlZXVkRVdFJqQTVSa2RCVGtGR1RrZ3RaVGxqWVRneVpEaGtPUzltYVd4bFgwaGZNalkwWHpFNU1qQjRNVEE0TUY4Mk5UQXdTMEpRVTE4M1VWWkNVbDh3TURBeE5DNTBjd29qUlZoVVNVNUdPak11TWpjd0xBcG9kSFJ3Y3pvdkwyWnBiR1Z6TG5Oc1lXTnJMbU52YlM5bWFXeGxjeTEwYldJdlZEQTVORGMwVkZWV1ZEVXRSakE1UmtkQlRrRkdUa2d0WlRsallUZ3laRGhrT1M5bWFXeGxYMGhmTWpZMFh6RTVNakI0TVRBNE1GODJOVEF3UzBKUVUxODNVVlpDVWw4d01EQXhOUzUwY3dvalJWaFVMVmd0UlU1RVRFbFRWQW89Cg==",
+                "mp4_low": "https:\/\/files.slack.com\/files-tmb\/T09474TUVT5-F09FGANAFNH-e9ca82d8d9\/screen-recording.mp4_trans.mp4?t=xoxe-9143163981923-9887240795207-9912311854977-a3a45f17dd7d446b48c043982559eee7",
+                "duration_ms": 87353,
+                "media_display_type": "video",
+                "thumb_video": "https:\/\/files.slack.com\/files-tmb\/T09474TUVT5-F09FGANAFNH-e9ca82d8d9\/screen-recording.mp4_thumb_video.jpeg?t=xoxe-9143163981923-9887240795207-9912311854977-a3a45f17dd7d446b48c043982559eee7",
+                "thumb_video_w": 1920,
+                "thumb_video_h": 1080,
+                "permalink": "https:\/\/clarity2025.slack.com\/files\/U09474U0DQB\/F09FGANAFNH\/screen-recording.mp4.mp4",
+                "permalink_public": "https:\/\/slack-files.com\/T09474TUVT5-F09FGANAFNH-75683c8f14",
+                "is_starred": false,
+                "skipped_shares": true,
+                "has_rich_preview": false,
+                "file_access": "visible"
+            }
+        ],
+        "upload": false,
+        "user": "U09474U0DQB",
+        "display_as_bot": false,
+        "type": "message",
+        "ts": "1758048905.519999",
+        "client_msg_id": "88419540-7f5c-42b5-858f-f7072165a0d6"
+    },
+    {
+        "text": "",
+        "files": [
+            {
+                "id": "F09FPH8QKK6",
+                "created": 1758050347,
+                "timestamp": 1758050347,
+                "name": "Untitled",
+                "title": "Untitled",
+                "mimetype": "application\/vnd.slack-docs",
+                "filetype": "quip",
+                "pretty_type": "Canvas",
+                "user": "U09474U0DQB",
+                "user_team": "T09474TUVT5",
+                "editable": true,
+                "size": 71,
+                "mode": "quip",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "url_private": "https:\/\/files.slack.com\/files-pri\/T09474TUVT5-F09FPH8QKK6\/canvas?token=xoxe-9143163981923-9887240795207-9912311854977-a3a45f17dd7d446b48c043982559eee7",
+                "url_private_download": "https:\/\/files.slack.com\/files-pri\/T09474TUVT5-F09FPH8QKK6\/download\/canvas?token=xoxe-9143163981923-9887240795207-9912311854977-a3a45f17dd7d446b48c043982559eee7",
+                "permalink": "https:\/\/clarity2025.slack.com\/docs\/T09474TUVT5\/F09FPH8QKK6",
+                "permalink_public": "https:\/\/slack-files.com\/T09474TUVT5-F09FPH8QKK6-41aa0b5c7c",
+                "url_static_preview": "https:\/\/clarity2025.slack.com\/docs\/T09474TUVT5\/F09FPH8QKK6\/mobile",
+                "quip_thread_id": "MKT9AA8v2EJ",
+                "updated": 1761738530,
+                "update_notification": 0,
+                "is_starred": false,
+                "skipped_shares": true,
+                "teams_shared_with": [],
+                "is_restricted_sharing_enabled": false,
+                "has_rich_preview": false,
+                "file_access": "visible",
+                "access": "owner",
+                "org_or_workspace_access": "none",
+                "title_blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "DOYmi",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Untitled"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "canvas_creator_id": "U09474U0DQB",
+                "team_pref_version_history_enabled": true,
+                "canvas_printing_enabled": true,
+                "is_ai_suggested": false
+            }
+        ],
+        "upload": false,
+        "user": "U09474U0DQB",
+        "display_as_bot": false,
+        "type": "message",
+        "ts": "1758050348.012689"
+    }
+]

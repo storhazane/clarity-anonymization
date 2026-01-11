@@ -1,0 +1,143 @@
+[
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1757850419.188209",
+        "client_msg_id": "4BDCA6E0-107E-4566-9661-BD7395C06168",
+        "text": "I found an interesting experiment done - <https:\/\/medium.com\/@sohail_saifi\/the-slack-message-pattern-that-predicts-team-burnout-2-weeks-early-ea6ff931792c|https:\/\/medium.com\/@sohail_saifi\/the-slack-message-pattern-that-predicts-team-burnout-2-weeks-early-ea6ff931792c>\n \n",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "attachments": [
+            {
+                "image_url": "https:\/\/miro.medium.com\/v2\/da:true\/resize:fit:1200\/0*OeAWziKcYDapK1-o",
+                "image_width": 1200,
+                "image_height": 675,
+                "image_bytes": 87433,
+                "from_url": "https:\/\/medium.com\/@sohail_saifi\/the-slack-message-pattern-that-predicts-team-burnout-2-weeks-early-ea6ff931792c",
+                "service_icon": "https:\/\/miro.medium.com\/v2\/resize:fill:304:304\/10fd5c419ac61637245384e7099e131627900034828f4f386bdaa47a74eae156",
+                "ts": 1749802529,
+                "id": 1,
+                "original_url": "https:\/\/medium.com\/@sohail_saifi\/the-slack-message-pattern-that-predicts-team-burnout-2-weeks-early-ea6ff931792c",
+                "fallback": "Medium: The Slack Message Pattern That Predicts Team Burnout 2 Weeks Early",
+                "text": "Last year, I noticed something odd in our team’s Slack analytics. Sarah, one of our most engaged developers, had suddenly flipped from…",
+                "title": "The Slack Message Pattern That Predicts Team Burnout 2 Weeks Early",
+                "title_link": "https:\/\/medium.com\/@sohail_saifi\/the-slack-message-pattern-that-predicts-team-burnout-2-weeks-early-ea6ff931792c",
+                "service_name": "Medium",
+                "fields": [
+                    {
+                        "value": "7 min read",
+                        "title": "Reading time",
+                        "short": true
+                    }
+                ]
+            }
+        ],
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "20CW7",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "I found an interesting experiment done - "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/medium.com\/@sohail_saifi\/the-slack-message-pattern-that-predicts-team-burnout-2-weeks-early-ea6ff931792c",
+                                "text": "https:\/\/medium.com\/@sohail_saifi\/the-slack-message-pattern-that-predicts-team-burnout-2-weeks-early-ea6ff931792c"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n \n"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "dart",
+                "users": [
+                    "U09EWMSUV0A"
+                ],
+                "count": 1
+            },
+            {
+                "name": "heart",
+                "users": [
+                    "U09FXNQ6T0Q"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1757850569.287859",
+        "edited": {
+            "user": "U09474U0DQB",
+            "ts": "1757850785.000000"
+        },
+        "client_msg_id": "2D9C9A03-51AD-42D5-9622-D9D9ABF9F263",
+        "text": "I am curious where he got static ratios of balance. ",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "2cAhU",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "I am curious where he got static ratios of balance"
+                            },
+                            {
+                                "type": "text",
+                                "text": ". "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "subtype": "channel_join",
+        "user": "U09FXNQ6T0Q",
+        "text": "<@U09FXNQ6T0Q> has joined the channel",
+        "type": "message",
+        "ts": "1757851566.630889"
+    }
+]

@@ -1,0 +1,39 @@
+[
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1759064418.338829",
+        "text": "\n<https:\/\/www.microsoft.com\/en-us\/research\/wp-content\/uploads\/2023\/07\/Focus_Time__CHIWork_.pdf>",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "\/2b",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "link",
+                                "url": "https:\/\/www.microsoft.com\/en-us\/research\/wp-content\/uploads\/2023\/07\/Focus_Time__CHIWork_.pdf"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

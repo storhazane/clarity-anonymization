@@ -1,0 +1,73 @@
+[
+    {
+        "user": "U09474U0DQB",
+        "type": "message",
+        "ts": "1760778726.163759",
+        "edited": {
+            "user": "U09474U0DQB",
+            "ts": "1760778820.000000"
+        },
+        "client_msg_id": "0232F558-9258-4A47-869C-E1A2801CE42E",
+        "text": "I’ve put together a landing page and started experimenting with Google Ads. If you know anyone who might be interested in learning more or following future updates, feel free to share this link: <https:\/\/clarity-hr.com\/|https:\/\/clarity-hr.com\/>",
+        "team": "T09474TUVT5",
+        "user_team": "T09474TUVT5",
+        "source_team": "T09474TUVT5",
+        "user_profile": {
+            "avatar_hash": "01ab3c7fc60e",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2025-08-23\/9399136805186_01ab3c7fc60e29dbcfad_72.jpg",
+            "first_name": "zanestorha16",
+            "real_name": "zanestorha16",
+            "display_name": "",
+            "team": "T09474TUVT5",
+            "name": "zanestorha16",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "RvSkm",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "I’ve put together a landing page and started "
+                            },
+                            {
+                                "type": "text",
+                                "text": "experimenting with "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Google Ads. If you know anyone who might be interested in learning more or following future updates, feel free to share this link: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/clarity-hr.com\/",
+                                "text": "https:\/\/clarity-hr.com\/"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "heart",
+                "users": [
+                    "U09BQ3R3SG2"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "subtype": "channel_join",
+        "user": "U09LRNUGZ4K",
+        "text": "<@U09LRNUGZ4K> has joined the channel",
+        "type": "message",
+        "ts": "1760782256.574189"
+    }
+]

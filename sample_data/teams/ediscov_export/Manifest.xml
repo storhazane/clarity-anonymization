@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExportManifest>
+  <CaseName>Contoso eDiscovery Case</CaseName>
+  <ExportedBy>admin@contoso.com</ExportedBy>
+  <ExportedAt>2025-12-02T10:00:00Z</ExportedAt>
+  <ExportTool>Microsoft Purview - eDiscovery (Standard)</ExportTool>
+  <ExportOptions>
+    <IncludeMailboxItems>true</IncludeMailboxItems>
+    <IncludeTeamsMessages>true</IncludeTeamsMessages>
+    <IncludeAttachments>true</IncludeAttachments>
+    <OutputFormat>EML</OutputFormat>
+  </ExportOptions>
+  <Counts>
+    <Messages>3</Messages>
+    <Attachments>2</Attachments>
+    <Users>5</Users>
+  </Counts>
+  <Notes>This manifest mirrors the structure produced by an admin-triggered eDiscovery export for Teams content; messages are saved as individual EML files and attachments are in the Attachments/ folder.</Notes>
+</ExportManifest>
