@@ -1,6 +1,6 @@
-# Clarity - Communication Data Anonymizer
+# Clarity - Communication Data Sanitizer
 
-A privacy-first web app that anonymizes Slack and Microsoft Teams exports by removing PII and applying SHA-256 hashing to create unlinkable employee and conversation IDs.
+A privacy-first web app that anonymizes Slack and Microsoft Teams exports by removing PII and applying SHA-256 hashing to create employee and conversation IDs.
 
 
 ## Before & After Examples
