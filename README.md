@@ -4,6 +4,10 @@ A privacy-first web app that anonymizes Slack and Microsoft Teams exports by rem
 
 ![Clarity Preview](https://user-images.githubusercontent.com/102668452/592554451-b118c452-18cf-4342-b902-72de1f7685b9.png)
 
+## SaNITAZATION PROCESS FLOW
+
+![SaNITAZATION PROCESS FLOW](https://github.com/user-attachments/assets/47a6b36a-bf69-430b-9ec0-2b781ac223b3)
+
 
 ## Before & After Examples
 
